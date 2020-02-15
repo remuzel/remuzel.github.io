@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wemigo.github.com]]></title><description><![CDATA[Software Developer Engineer working @ Amazon PrimeVideo.]]></description><link>https://wemigo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 15 Feb 2020 23:48:48 GMT</lastBuildDate><item><title><![CDATA[The Round pegs of Big Data]]></title><description><![CDATA[This was a reaserch project proposed to two friends of mine and myself. It's all about how Big Data is a problem, and the (at the time…]]></description><link>https://wemigo.github.io/Articles/BIGDATA/BIGDATA/</link><guid isPermaLink="false">https://wemigo.github.io/Articles/BIGDATA/BIGDATA/</guid><content:encoded>&lt;p&gt;This was a reaserch project proposed to two friends of mine and myself. It&apos;s all about how Big Data is a problem, and the (at the time) technologies that were being used to tackle them. If that&apos;s interesting to you, enjoy!&lt;/p&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h1 style=&quot;text-align: center;&quot;&gt;
+🐻 with me while I copy this over!&lt;br&gt;In the mean time, you can read about it over at my &lt;a href=&quot;https://www.doc.ic.ac.uk/~rku16/Big_Data/Home.html&quot; target=&quot;_blank&quot;&gt;old website&lt;/a&gt;.
+&lt;/h1&gt;
+&lt;!-- 
+- ## [MapReduce](#MapReduce)
+
+- ## [Tez: Better version of MapReduce](#Tez)
+
+- ## [Pig](#Pig)
+
+- ## [Hive](#Hive)
+
+- ## [Shark](#Shark)
+
+- ## [Spark SQL](#Spark-SQL)
+
+- ## [Application of Analytics](#Analytics) 
+
+- ## [References](#References)
+
+&lt;h1 class=&quot;is-pink&quot; id=&quot;MapReduce&quot;&gt;MapReduce&lt;/h1&gt;
+
+### What is it?
+
+As we talked about in the introduction, we’re dealing with a lot of information. That means it’s going to be expensive in either time or computational power (or both) to analyze our data. By that, I’m saying we’re going to need more than my Macbook to crack Big Data. Let’s bring out the big guns: distributed parallel computing! MapReduce: The name is relatively intuitive. You distribute the task between a lot of computers, make them run at the same time, and then regroup the results. Simple enough, right?
+
+The next question is how to find a way to tailor parallel computing to Big Data. In 2004, Google tackled this project and made two key observations:
+
+* A lot of big data analytics is actually quite straight forward. Although you tackle huge sets of information, the data you extract can be relatively easy to work with (depending on the type of data, of course).
+* In the past, most of the parallel computing was done using Message Passing Interface. In MPI, a lot of information is passed between the parallel processes, which can be a good or bad thing depending on the situation. Therefore, observation number two is that in Big Data analytics the processes don’t really need to share information all the time. 
+
+Seeing this, they set out to make an efficient program to parallelize computations that doesn’t need to lose time by sharing information between the processes[1]. MapReduce, the name given to this, will ring a bell to anyone with functional programming experience as it’s a combination of two popular functions, map, and reduce (aka fold). The name describes the program pretty well: first, the map aspect, which transforms a set of data, then a reduction.
+
+First, the input files are split in let’s say X pieces. Every piece is then sent to a different cluster of machines, and put into a map. This map produces key-value pairs defined by the user. Then, the key-value pairs are saved onto a local disk in a partition based on the keys. Up until now, this has been a relatively cheap computation to make. The most expensive part is called shuffling. X pieces of information have been saved on different disks so a reader has to actually go back and read everything, and then sort everything by their keys. This is because you probably want to separate the distinct keys in the upcoming reduce. If this doesn’t make sense, it will in the example. Once everything is sorted, the parallel user-defined reduce function runs and produces the final result!
+
+These gifs examplify the MapReduce process. We used cards as an analogy. Every card is a file to be read. We only want cards that have an actual value on them. Aces, Kings, Queens, and Jacks are discarded; they are analogous to unreadable files. In this case, let&apos;s say we want to get the sum of every suit using a MapReduce. First, we&apos;d split the cards by suit, while discarding anything with a face. Then sum things up. 
+
+&lt;br&gt;
+
+&lt;ul style=&quot;white-space: nowrap; list-style: none; display: inline;&quot;&gt;
+    &lt;li style=&quot;list-style: none; display: inline;&quot;&gt;
+        &lt;img src=&quot;https://www.doc.ic.ac.uk/~rku16/Big_Data/Gifs/soloMap.gif&quot; style=&quot;width:33%;&quot;&gt;
+    &lt;/li&gt;
+    &lt;li style=&quot;list-style: none; display: inline;&quot;&gt;
+        &lt;img src=&quot;https://www.doc.ic.ac.uk/~rku16/Big_Data/Gifs/SplitAndMap.gif&quot; style=&quot;width:33%;&quot;&gt;
+    &lt;/li&gt;
+    &lt;li style=&quot;list-style: none; display: inline;&quot;&gt;
+        &lt;img src=&quot;https://www.doc.ic.ac.uk/~rku16/Big_Data/Gifs/Shuffle.gif&quot; style=&quot;width:33%;&quot;&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;br&gt;
+
+|                   |                          |                 |
+| :------------- |:-------------:| :-----:|
+| Here you see what it looks like when one computer tries to do the map by itself. We&apos;re only using 30 cards here so it&apos;s not that big of a deal but you can imagine the problem if we used more than 20 decks? | We now have two Nodes, or computers working on this in parallel. At the beginning we have one pile. First, we split the files, then we both do the user defined Map. | Now that we&apos;ve all finished our map we do the shuffle phase, joining all the suits to allow us to do the reduction. We&apos;ll now do the simple addition. |
+
+### Advantages and shortcomings
+
+MapReduce is a rather simple parallelization paradigm. For that reason, it&apos;s great for simple calculations and data manipulations. Since every node works on different data, you can also ensure there will be no deadlock. However, it quickly becomes clear that some intricate calculations will need more than a map and a reduction. For example, working with statistics often requires a bit more than a MapReduce.
+
+Another issue we haven&apos;t discussed yet is the initialization of a MapReduce. Splitting the files between the nodes in the beginning of the computation is slow. Furthermore, it then takes a while to get them all computing once they have their respective files. It&apos;s pretty fast after that, but if you don&apos;t have that much information to compute consider using something else. The time lost to start MapReduce might not be worth it.
+
+There&apos;s another problem for small data sets. I&apos;ll give you a second to look back at the gifs. Can you see the issue in our 30 card example? The shuffle is slow. Look at me trying to pile the cards together; it&apos;s painful to watch! (Especially the clubs... That was cringy) It&apos;s such a small data set that we really didn&apos;t need two workers to get it done. Since shuffling is an expensive calculation, I could probably have separated the cards on my own in the same time.
+
+There&apos;s a final aspect of MapReduce that is either an advantage or a disadvantage depending on your calculation. MapReduce is great for handling failures[2]. When a task fails on a node, MapReduce automatically sends it to another node to try and recompute it. It will do so a configurable amount of times before marking the data as a failure and tossing it away. Depending on your needs it can be good or bad. If you need a fast calculation, then it&apos;s a problem because it runs through some files multiple times. On the other, if you don&apos;t mind the delay, then it&apos;s great. You can also tweak the behaviour of how your MapReduce deals with failures. For example aborting the task if failures amount for more than an arbitrary percent of jobs, or killing process that seem to be hanging.
+
+In short, when deciding if you&apos;re going to use MapReduce, think about how many files you have, if your calculation is simple enough, how you want to deal with failures, and your time restrictions.
+
+If you want to check out a parallelization that was created in an attempt to get rid of the MapReduce flaws, I recommend you look at TEZ
+
+&lt;h1 class=&quot;is-pink&quot; id=&quot;Tez&quot;&gt;Tez: Better version of MapReduce&lt;/h1&gt;
+
+## Directed Acyclic Graphs
+
+Tez uses directed acyclic graphs (DAGs) to optimize MapReduce. [3] A DAG is a graph that doesn&apos;t have directed cycles. In other terms, It&apos;s a graph in which if you move away from an vertex, you will never be able to go back. It&apos;s going to be useful to us because with it we can dictate how a program should handle different situations. This is an example of a DAG: 
+
+&lt;br&gt;
+
+![directed_acyclic_graph](DAG.jpg)
+
+&lt;br&gt;
+
+As you can see, from A, B, and E, you can make progress down but never the other way. Using a DAG, we can represent every vertex as a state, and every edge as a way to transform data to a certain state. For example, imagine A was a server log. From it, you only want to extract the IP addresses of visitors. The edge AC represents a process to do so and C is a list of IP addresses. Although B might be a different input file, in the end you also want something to do with IP addresses so both B, and C can end in F. This allows for flexibility in the input and the style of calculations, contrarily to the MapReduce paradigm.
+
+Another difference: nothing forbids you from doing a MapReduce on top of another MapReduce. The problem with that is that it&apos;s just slow. Once you get the reduced output of the first MR, you have to re-split it to reMapReduce it. On the other hand, with TEZ and the DAG feature, you can skip the middle step. It makes more sense with a drawing:
+
+&lt;br&gt;
+
+![mr_v_taz](MR_vs_Tez.jpg)
+
+&lt;br&gt;
+
+In the MapReduce, you see that the first mappers (blue boxes), shuffle into the two green reducers. However, before the reducers can re-Map anything, they have to store their information on the node they&apos;re currently working on. This requires effort. On the other hand, Tez can just reduce on reducers, simplifying the process.
+
+## Advantages and shortcomings
+
+MapReduce is a rather rigid structure, and while Tez might seem similar, it does compensate for a few of MapReduce&apos;s shortcomings. For example, it is more flexible thanks to the DAG. It offers freedom and diversity at the cheap cost of a bit of programming. Any MapReduce can be implemented by Tez, but not all Tez processes can be simplified in terms of MapReduces.
+
+Tez&apos;s flexibility does come with a drawback. Starting it takes more effort than a MapReduce, and there&apos;s a bit more processing logic in terms of the implementation. The problems of small files that we had seen in MapReduce remains as well.
+
+&lt;h1 class=&quot;is-pink&quot; id=&quot;Pig&quot;&gt;Pig&lt;/h1&gt;
+
+## What is it?
+
+Basically, Pig (Latin) is a super-tool for MapReduce programmers. Really. It&apos;s great. It simplifies the code-writing process by giving you acess to high-level declarative querying in the spirit of SQL, and low-level, procedural programming à la MapReduce[4].
+
+Also, it is useful to note that Pig Latin has three, simple, yet rich data models consisting of four types:
+
+* Atom (an atomic value such as a string or number),
+* Tuple (just like in good old Haskell but with one or more values),
+* Bag (basically a list of Tuples, can contain duplicates),
+* Map (just like maps in Java, keys need to be atoms).
+
+In general using Pig Latin instead of let&apos;s say, Java, you&apos;ll be writing 1/20th of the lines of code using 1/16th of the development time[5].
+
+## Simple steps of Pig Latin execution
+
+### Specifying Input Data: LOAD
+
+The first step of the execution of a Pig program is the LOAD operation. A step which is a tad easier than rocket-science to understand; this is where the information is parsed into Pig&apos;s data model and loaded into the program (woaah). Indeed, an input file is always assumed by the Grunt compiler to contain a sequence of tuples (i.e. a bag).
+
+To do this, the user typically inputs:
+
+* An input text file that contains the query / data,
+* A function, usually a User Defined Function (UDF) called the deserializer,
+* An indication of the number and names of the fields to be used in the declared tuples, this is the schema.
+
+But wait you&apos;re now thinking, &quot;That&apos;s a lot of things to give to Grunt! You told me just above that Pig was GREAT !... What&apos;s up with that ?&quot;
+
+This is where we make our smirky faces, Grunt is pretty good and alows you to solely sprecify the text file containing the data! In this case the usualy lazy Grunt, the default deserializer is user, that expects a plain text and a tab-delimited file. The same goes for the schema information, for the default one, fields must be referred to by position rather than by name. In other words, by marking them with $0, $1, etc.
+
+Note: Grunt is lazy, in other words, no data is actually read at this point. The LOAD operation simply indicated everything the compiler will need to know in order to instantely read and process the information when the user explicitly asks for output.
+
+### Per-tuple Processing: FOREACH
+
+Okay, so. At the point we have out input data file(s) specified through the LOAD instruction, all we need to know now is what to do with all this (un)valuable information. Here we will only see a basic example of operation that can he used, the FOREACH command. That of applying the same process to every element.
+
+In general, the FOREACH command is followed by details as to what is expected to be computed from every tuple. Just like in a map function, you need to specify what you wish to map over the data set. Again, it is possible for to supply UDFs to the mapping.
+
+Here, it is often the case that we wish to flatten the information output before storing it. This involves the easily described passage from node 2 to 3 on the below diagram: 
+
+&lt;br&gt;
+
+![Pig_FOREACH_example](Pig_FOREACH_example.png)
+
+&lt;br&gt;
+
+
+* Where we go from the tuple (Alice, {(lakers rumors), (lakers news)}) containing a Bag as second element.
+* to the flattend equivalent but more appealing (Alice, lakers rumors) (Alice, lakers news)
+
+Note: From the semantics of FOREACH, the input commands are understood such as there is no dependency between each processing of tuples. This furthers one of the key goals of Pig: Efficient parallel implementation. 
+
+### Discarding Unwanted Data: FILTER
+
+We&apos;re almost there! There&apos;s one last step we need to go through before getting serious, the FILTER. This command is a rather 
+simple and intuitive one that does exactly what you think it does (intuitively, or after reading our great sub-title).
+
+Pig Latin uses various filtering conditions including the classics such as ==, !=, logical connectors AND, OR, and NOT, as well as strict comparitors neq, and eq. But arbitrary expression are also alowed, therefore we can use UDFs while filtering.
+
+### Getting Related Data Together: COGROUP
+
+Per tuple processing only takes us so far, so we put it to you ladies and gentlemen of the jury. We usualy need to collect them in a way so that related data is grouped together such that it can be processed as a whole. This is where the COGROUP command and it&apos;s look-alikes come in action.
+
+In general, and as in the below example, the COGROUP command returns a single tuple for each group; where the first field is always the groups&apos; indentifier and the others are always bags in the order of which their coresponding fields was selected in the LOAD instruction. 
+
+This model naturally raises serious concerns: what about very large groups such as we see regularily in Big Data? We might end up building gigantic tuples, containing monstrous nested bags.
+
+Thankfuly, in many cases it turns out the system avoids meterializing these bags (1), which is important as they can be bigger than the main memory. In the other cases, when using algebraic UDFs, Pig provides a special API to optimize these evaluations using a two-tier tree. 
+
+## Advantages and shortcomings
+
+Throughout these simple step by step explanations, you should already have an idea of how Pig works. To explicit certain points, here are some pros and cons of the language.
+
+### Pros:
+
+* Fast developement,
+* Large optimization possibilities,
+* Efficient parallelisation implementation,
+* Reduced restrictions with regards to the input information.
+
+### Cons:
+
+* Pig is terrible at processing unstructured data,
+* Memory overflow realated problems can occur when using large streams of data using non-algebraic UDFs.
+
+&lt;h1 class=&quot;is-pink&quot; id=&quot;Hive&quot;&gt;Hive&lt;/h1&gt;
+
+## What is it?
+
+ Hive, or more precisely Apache Hive, exists to facilitate and lighten analysis of Big Data. (1)
+
+It is a datawarehousing infrastructure built on top of Hadoop. (2)
+
+Queries can be written as statements similar to SQL. Called Hive Query Language (HQL), the language is declarative. Statements are first put into a MapReduce or Tez and then executed across a Hadoop cluster. This allows HQL to work on huge files (i.e. Big Data). (3) 
+
+&lt;h1 class=&quot;is-pink&quot; id=&quot;Shark&quot;&gt;Shark&lt;/h1&gt;
+
+&lt;h1 class=&quot;is-pink&quot; id=&quot;Spark-SQL&quot;&gt;Spark SQL&lt;/h1&gt;
+
+&lt;h1 class=&quot;is-pink&quot; id=&quot;Analytics&quot;&gt;Application of Analytics&lt;/h1&gt;
+
+&lt;h1 class=&quot;is-pink&quot; id=&quot;References&quot;&gt;Referencess&lt;/h1&gt;
+
+[1]: Jeffrey Dean and Sanjay Ghemawat. Mapreduce: Simplified data processing on large clusters. Commun. ACM, 51(1):107:113, January 2008.
+
+[2]: Li, H (2015). Introduction to Big Data. New York: ADP Inovation Labs
+
+[3]: Murthy, Arun and Bikas Saha. What Is Apache Tez?. InfoQ. N.p., 2014. Web. 13 Mar. 2017.
+
+[4]: Olston, C. / Reed, B. / Srivastava, U. / Kumar, R. / Tomkins, A. (2008) Pig Latin: A Not-So-Foreign Language for Data Processing. Vancouver, Canada.
+
+[5]: YouTube. (2017). Apache Pig Tutorial 1 | Understanding Pig Latin | Pig Latin Explained | Hadoop Tutorial. [online] Available at: this link [Accessed 10 Feb. 2017]. --&gt;</content:encoded></item></channel></rss>
