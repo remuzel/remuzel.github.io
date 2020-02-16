@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://wemigo.github.io/sitemap.xml
+Sitemap: https://wemigo.github.io//sitemap.xml
 Host: https://wemigo.github.io
