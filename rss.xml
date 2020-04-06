@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[remuzel.github.com]]></title><description><![CDATA[Software Developer Engineer working @ Amazon PrimeVideo.]]></description><link>https://remuzel.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 30 Mar 2020 13:36:12 GMT</lastBuildDate><item><title><![CDATA[The Round pegs of Big Data]]></title><description><![CDATA[This was a reaserch project proposed to two friends of mine and myself. It's all about how Big Data is a problem, and the (at the time…]]></description><link>https://remuzel.github.io/Articles/BIGDATA/BIGDATA/</link><guid isPermaLink="false">https://remuzel.github.io/Articles/BIGDATA/BIGDATA/</guid><content:encoded>&lt;p&gt;This was a reaserch project proposed to two friends of mine and myself. It&apos;s all about how Big Data is a problem, and the (at the time) technologies that were being used to tackle them. If that&apos;s interesting to you, enjoy!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[remuzel.github.com]]></title><description><![CDATA[Software Developer Engineer working @ Amazon PrimeVideo.]]></description><link>https://remuzel.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 06 Apr 2020 20:30:30 GMT</lastBuildDate><item><title><![CDATA[If The Moon Were Only 1 Pixel]]></title><description><![CDATA[After Josh Worth created this visualisation as part of a personal project, it's been posted on hundreds of websites, was featured in museum…]]></description><link>https://remuzel.github.io/Articles/solarSystem/solarSystem/</link><guid isPermaLink="false">https://remuzel.github.io/Articles/solarSystem/solarSystem/</guid><content:encoded>&lt;p&gt;After Josh Worth created this visualisation as part of a personal project, it&apos;s been posted on hundreds of websites, was featured in museum exhibits, used as a teaching tool by science educators, and translated into 16 languages.&lt;/p&gt;
+&lt;p&gt;This puts into perspective how mind-bogglingly huge space is. Every pixel on the website represents an object the size of the moon 🌔.&lt;/p&gt;
+&lt;p&gt;Scroll through it yourself, or travel at the painfully &lt;em&gt;slow&lt;/em&gt; speed of light - either is certain to surprise you.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;a 
+    href=&quot;https://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html&quot;
+    rel=&quot;Moon Pixel image&quot;
+    target=&quot;_blank&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 650px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.982986767485826%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wgARCAAJABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAYEBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAYrIFo4Y/8QAGxAAAgEFAAAAAAAAAAAAAAAAAgMBAAQQEjP/2gAIAQEAAQUC0gIpDAFGLbl//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHBABAAEEAwAAAAAAAAAAAAAAAQIAAxAREiGB/9oACAEBAAY/AknGXJBj3iJb0Gs+1//EABwQAQACAQUAAAAAAAAAAAAAAAEQQREAIVGBsf/aAAgBAQABPyFJNggXb1BiYLjdtZ92v//aAAwDAQACAAMAAAAQY8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAACAwADAQAAAAAAAAAAAAABEQAhMUGBkfD/2gAIAQEAAT8QMDGwAAhQiwWQCuV3AbbYAyhYGt+QbOZt9UJ//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;MoonPixel&quot;
+        title=&quot;MoonPixel&quot;
+        src=&quot;/static/542e68e80d9c94aed9847ddf0faa3f16/6fdff/moonpixel.jpg&quot;
+        srcset=&quot;/static/542e68e80d9c94aed9847ddf0faa3f16/efc60/moonpixel.jpg 163w,
+/static/542e68e80d9c94aed9847ddf0faa3f16/ebe48/moonpixel.jpg 325w,
+/static/542e68e80d9c94aed9847ddf0faa3f16/6fdff/moonpixel.jpg 650w,
+/static/542e68e80d9c94aed9847ddf0faa3f16/5ea24/moonpixel.jpg 975w,
+/static/542e68e80d9c94aed9847ddf0faa3f16/09cd1/moonpixel.jpg 1300w,
+/static/542e68e80d9c94aed9847ddf0faa3f16/94f7e/moonpixel.jpg 2116w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The site was awarded the 2014 Webby Award for science websites.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[The Round pegs of Big Data]]></title><description><![CDATA[This was a reaserch project proposed to two friends of mine and myself. It's all about how Big Data is a problem, and the (at the time…]]></description><link>https://remuzel.github.io/Articles/bigData/bigData/</link><guid isPermaLink="false">https://remuzel.github.io/Articles/bigData/bigData/</guid><content:encoded>&lt;p&gt;This was a reaserch project proposed to two friends of mine and myself. It&apos;s all about how Big Data is a problem, and the (at the time) technologies that were being used to tackle them. If that&apos;s interesting to you, enjoy!&lt;/p&gt;
 &lt;hr&gt;
 &lt;br&gt;
 &lt;br&gt;

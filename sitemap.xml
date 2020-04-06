@@ -4,10 +4,11 @@
 <url> <loc>https://remuzel.github.io/projects</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remuzel.github.io/lost</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remuzel.github.io/icode</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remuzel.github.io/projects/changeXchange</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remuzel.github.io/projects/munsjuk</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remuzel.github.io/projects/nitechain</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remuzel.github.io/projects/play4us</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remuzel.github.io/projects/changeXchange</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remuzel.github.io/projects/nitechain</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remuzel.github.io/projects/munsjuk</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remuzel.github.io/articles/solar-system</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remuzel.github.io/articles/big-data</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remuzel.github.io/bio/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remuzel.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
