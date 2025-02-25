@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://remuzel.github.io//sitemap.xml
-Host: https://remuzel.github.io
