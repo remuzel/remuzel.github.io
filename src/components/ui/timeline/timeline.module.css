@@ -1,0 +1,6 @@
+.timelineCard {
+  transition: all 0.3s ease;
+  overflow: visible;
+}
+
+/* Remove hover transform since we're using Framer Motion for hover effects */

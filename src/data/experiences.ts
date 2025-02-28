@@ -4,6 +4,7 @@ export interface Experience {
   title: string;
   company: string;
   description: string;
+  logo?: string; // Path to company logo
   technologies?: string[];
   highlights?: string[];
 }
@@ -14,6 +15,7 @@ export const experiences: Experience[] = [
     period: "2021 - Present",
     title: "SDE",
     company: "Amazon Alexa",
+    logo: "/images/logos/amazon.svg",
     description: "Leading the development of scalable backend services for Alexa voice assistant, working with distributed systems handling millions of requests. Implementing AWS-based solutions including Lambda, DynamoDB, and SQS.",
     technologies: ["AWS Lambda", "DynamoDB", "SQS", "Java", "TypeScript"],
     highlights: [
@@ -28,6 +30,7 @@ export const experiences: Experience[] = [
     period: "2018 - 2021",
     title: "Software Engineer",
     company: "Previous Company",
+    logo: "/images/logos/tech-company.svg",
     description: "Designed and developed microservices architecture for a high-traffic application. Implemented continuous integration/deployment pipelines and contributed to system architecture decisions.",
     technologies: ["Node.js", "Docker", "Kubernetes", "MongoDB", "Redis"],
     highlights: [
@@ -42,6 +45,7 @@ export const experiences: Experience[] = [
     period: "2016 - 2018",
     title: "Junior Developer",
     company: "First Company",
+    logo: "/images/logos/startup.svg",
     description: "Contributed to backend API development and integration with third-party services. Improved existing systems and participated in code reviews and testing.",
     technologies: ["Python", "Django", "PostgreSQL", "RESTful APIs"],
     highlights: [
