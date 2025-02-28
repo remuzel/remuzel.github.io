@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { SECTIONS, ALT, ABOUT } from "@/constants/strings";
 
 export default function About() {
   return (
@@ -14,7 +15,7 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          About Me
+          {SECTIONS.aboutMe}
           <span className="absolute -bottom-3 left-0 w-16 h-1 bg-alexa-blue"></span>
         </motion.h2>
         
@@ -31,7 +32,7 @@ export default function About() {
               <div className="relative h-full w-full rounded-lg overflow-hidden z-10 shadow-md">
                 <Image
                   src="/images/photo.jpg"
-                  alt="Remi Uzel"
+                  alt={ALT.portrait}
                   fill
                   className="object-cover"
                   priority
@@ -46,21 +47,11 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-lg mb-6">
-              Welcome to my portfolio! I'm a Software Development Engineer at Amazon Alexa with a passion for building scalable backend systems and cloud architectures.
-            </p>
-            
-            <p className="text-lg mb-6">
-              With extensive experience in AWS and distributed systems, I specialize in designing and implementing robust solutions that can handle millions of requests while maintaining high availability and performance.
-            </p>
-            
-            <p className="text-lg mb-6">
-              While my primary expertise is in backend development, I'm always exploring new technologies and approaches to broaden my skill set. This website itself is an example of my venture into frontend development.
-            </p>
-            
-            <p className="text-lg">
-              When I'm not coding, you can find me hiking in the mountains, reading sci-fi novels, or experimenting with home automation projects.
-            </p>
+            {ABOUT.bio.map((paragraph, index) => (
+              <p key={index} className={`text-lg ${index < ABOUT.bio.length - 1 ? 'mb-6' : ''}`}>
+                {paragraph}
+              </p>
+            ))}
           </motion.div>
         </div>
       </div>

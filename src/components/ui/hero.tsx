@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { COMMON, NAV } from "@/constants/strings";
 
 export default function Hero() {
   // For Alexa voice visualization animation
@@ -14,42 +15,6 @@ export default function Hero() {
 
     return () => clearInterval(interval);
   }, []);
-
-  // Animation variants
-  const ringAnimationInner = {
-    animate: {
-      scale: [1, 1.1, 1],
-      opacity: [0.5, 0.3, 0.5],
-      boxShadow: [
-        "0 0 5px rgba(0, 202, 255, 0.3)",
-        "0 0 15px rgba(0, 202, 255, 0.5)",
-        "0 0 5px rgba(0, 202, 255, 0.3)"
-      ]
-    },
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  };
-
-  const ringAnimationOuter = {
-    animate: {
-      scale: [1, 1.15, 1],
-      opacity: [0.3, 0.2, 0.3],
-      boxShadow: [
-        "0 0 5px rgba(0, 202, 255, 0.2)",
-        "0 0 20px rgba(0, 202, 255, 0.4)",
-        "0 0 5px rgba(0, 202, 255, 0.2)"
-      ]
-    },
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut",
-      delay: 0.5
-    }
-  };
 
   return (
     <section id="home" className="relative flex flex-col items-center justify-center min-h-screen px-4 py-20">
@@ -94,7 +59,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        Remi Uzel
+        {COMMON.name}
       </motion.h1>
       
       <motion.p
@@ -103,7 +68,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Software Development Engineer at Amazon Alexa
+        {COMMON.title}
       </motion.p>
       
       {/* Alexa Voice Visualization */}
@@ -131,7 +96,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
       >
-        <p className="text-sm">Scroll for more</p>
+        <p className="text-sm">{NAV.scrollForMore}</p>
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ 

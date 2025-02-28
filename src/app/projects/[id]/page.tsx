@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { getProjectById, projects } from "@/data/projects";
 import { notFound } from "next/navigation";
+import { COMMON, NAV, SECTIONS, ERRORS } from "@/constants/strings";
 
 // Generate metadata for the page
 export function generateMetadata({ params }: { params: { id: string } }) {
   const project = getProjectById(params.id);
-  if (!project) return { title: "Project Not Found" };
+  if (!project) return { title: ERRORS.notFound.title };
   
   return {
-    title: `${project.title} | Remi Uzel`,
+    title: `${project.title} | ${COMMON.name}`,
     description: project.description,
   };
 }
@@ -39,7 +40,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className="mr-2">
               <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
             </svg>
-            Back to Projects
+            {NAV.projects}
           </Link>
 
           <div className="bg-card-bg rounded-lg overflow-hidden border border-border shadow-sm p-8">
@@ -112,14 +113,14 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
               href="/projects"
               className="text-muted hover:text-alexa-blue transition-colors"
             >
-              ← All Projects
+              ← {NAV.projects}
             </Link>
             
             <Link 
               href="/"
               className="text-muted hover:text-alexa-blue transition-colors"
             >
-              Back to Home ↑
+              {NAV.backToHome} ↑
             </Link>
           </div>
         </div>

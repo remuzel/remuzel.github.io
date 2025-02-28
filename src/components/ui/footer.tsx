@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { COMMON, NAV, ALT, SOCIAL } from "@/constants/strings";
 
 export default function Footer() {
   return (
@@ -13,30 +14,30 @@ export default function Footer() {
             <div className="w-8 h-8 relative overflow-hidden rounded-md">
               <Image 
                 src="/images/logo.png"
-                alt="Remi Uzel Logo"
+                alt={ALT.logo}
                 fill
                 className="object-cover"
               />
             </div>
-            <span className="font-bold text-lg">Remi Uzel</span>
+            <span className="font-bold text-lg">{COMMON.name}</span>
           </div>
           
           {/* Simplified navigation */}
           <div className="flex gap-6 mb-6">
-            <Link href="#home" className="text-muted hover:text-alexa-blue transition-colors">Home</Link>
-            <Link href="#about" className="text-muted hover:text-alexa-blue transition-colors">About</Link>
-            <Link href="#experience" className="text-muted hover:text-alexa-blue transition-colors">Experience</Link>
-            <Link href="#projects" className="text-muted hover:text-alexa-blue transition-colors">Projects</Link>
+            <Link href="#home" className="text-muted hover:text-alexa-blue transition-colors">{NAV.home}</Link>
+            <Link href="#about" className="text-muted hover:text-alexa-blue transition-colors">{NAV.about}</Link>
+            <Link href="#experience" className="text-muted hover:text-alexa-blue transition-colors">{NAV.experience}</Link>
+            <Link href="#projects" className="text-muted hover:text-alexa-blue transition-colors">{NAV.projects}</Link>
           </div>
           
           {/* Social links with enhanced hover effects */}
           <div className="flex gap-4 mb-6">
             <motion.a 
-              href="https://github.com/remuzel" 
+              href={SOCIAL.github} 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted hover:text-alexa-blue hover:drop-shadow-[0_0_8px_rgba(0,202,255,0.7)] transition-colors p-1"
-              aria-label="GitHub"
+              aria-label={SOCIAL.platformName.github}
               whileHover={{ scale: 1.2 }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
@@ -44,11 +45,11 @@ export default function Footer() {
               </svg>
             </motion.a>
             <motion.a 
-              href="https://linkedin.com/in/remi-uzel" 
+              href={SOCIAL.linkedin} 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted hover:text-alexa-blue hover:drop-shadow-[0_0_8px_rgba(0,202,255,0.7)] transition-colors p-1"
-              aria-label="LinkedIn"
+              aria-label={SOCIAL.platformName.linkedin}
               whileHover={{ scale: 1.2 }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
@@ -60,7 +61,7 @@ export default function Footer() {
         
         <div className="border-t border-border mt-2 pt-6 text-center">
           <p className="text-sm text-muted">
-            © {new Date().getFullYear()} Remi Uzel. All rights reserved.
+            {COMMON.copyright(new Date().getFullYear())}
           </p>
         </div>
       </div>

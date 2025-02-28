@@ -41,14 +41,6 @@ export const ANIMATIONS = {
   },
 };
 
-// Accessiblity
-export const ARIA = {
-  toggleTheme: (theme: 'light' | 'dark') => 
-    `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`,
-  socialLink: (platform: string) => 
-    `Visit Remi Uzel's ${platform} profile`,
-};
-
 // Routes
 export const ROUTES = {
   home: "/",

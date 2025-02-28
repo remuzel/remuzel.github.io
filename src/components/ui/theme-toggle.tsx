@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ARIA } from "@/constants/strings";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -61,7 +62,7 @@ export default function ThemeToggle() {
       className="w-10 h-10 rounded-full flex items-center justify-center bg-transparent transition-colors group"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+      aria-label={ARIA.toggleTheme(theme)}
     >
       <AnimatePresence mode="wait" initial={false}>
         {theme === "dark" ? (

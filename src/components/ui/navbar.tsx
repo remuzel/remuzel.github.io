@@ -5,8 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ThemeToggle from "./theme-toggle";
-import SocialIcon from "../common/SocialIcon";
 import { ROUTES } from "@/constants/theme";
+import { COMMON, NAV, ALT, SOCIAL, ARIA } from "@/constants/strings";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,12 +32,12 @@ export default function Navbar() {
             <div className="w-8 h-8 md:w-10 md:h-10 relative overflow-hidden rounded-md">
               <Image 
                 src="/images/logo.png"
-                alt="Remi Uzel Logo"
+                alt={ALT.logo}
                 fill
                 className="object-cover"
               />
             </div>
-            <span className="font-bold text-lg md:text-xl">Remi Uzel</span>
+            <span className="font-bold text-lg md:text-xl">{COMMON.name}</span>
           </Link>
 
           {/* Desktop Navigation - Simplified */}
@@ -46,35 +46,35 @@ export default function Navbar() {
               href={ROUTES.home}
               className="text-foreground/80 hover:text-alexa-blue transition-colors"
             >
-              Home
+              {NAV.home}
             </Link>
             <Link 
               href={ROUTES.about}
               className="text-foreground/80 hover:text-alexa-blue transition-colors"
             >
-              About
+              {NAV.about}
             </Link>
             <Link 
               href={ROUTES.experience}
               className="text-foreground/80 hover:text-alexa-blue transition-colors"
             >
-              Experience
+              {NAV.experience}
             </Link>
             <Link 
               href={ROUTES.projects}
               className="text-foreground/80 hover:text-alexa-blue transition-colors"
             >
-              Projects
+              {NAV.projects}
             </Link>
             
             {/* Social links with enhanced hover effects */}
             <div className="flex items-center gap-3">
               <motion.a 
-                href="https://github.com/remuzel" 
+                href={SOCIAL.github} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-foreground/80 hover:text-alexa-blue transition-colors p-1"
-                aria-label="GitHub"
+                aria-label={SOCIAL.platformName.github}
                 whileHover={{ scale: 1.2 }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" className="hover:drop-shadow-[0_0_8px_rgba(0,202,255,0.7)]">
@@ -82,11 +82,11 @@ export default function Navbar() {
                 </svg>
               </motion.a>
               <motion.a 
-                href="https://linkedin.com/in/remi-uzel" 
+                href={SOCIAL.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-foreground/80 hover:text-alexa-blue transition-colors p-1"
-                aria-label="LinkedIn"
+                aria-label={SOCIAL.platformName.linkedin}
                 whileHover={{ scale: 1.2 }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" className="hover:drop-shadow-[0_0_8px_rgba(0,202,255,0.7)]">
@@ -101,11 +101,11 @@ export default function Navbar() {
           <div className="md:hidden flex items-center gap-3">
             <ThemeToggle />
             <motion.a 
-              href="https://github.com/remuzel" 
+              href={SOCIAL.github} 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-foreground/80 hover:text-alexa-blue transition-colors p-1"
-              aria-label="GitHub"
+              aria-label={SOCIAL.platformName.github}
               whileHover={{ scale: 1.2 }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" className="dark:hover:drop-shadow-[0_0_8px_rgba(0,202,255,0.7)] hover:drop-shadow-[0_0_8px_rgba(0,136,169,0.7)]">
@@ -113,11 +113,11 @@ export default function Navbar() {
               </svg>
             </motion.a>
             <motion.a 
-              href="https://linkedin.com/in/remi-uzel" 
+              href={SOCIAL.linkedin}
               target="_blank" 
               rel="noopener noreferrer"
               className="text-foreground/80 hover:text-alexa-blue transition-colors p-1"
-              aria-label="LinkedIn"
+              aria-label={SOCIAL.platformName.linkedin}
               whileHover={{ scale: 1.2 }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" className="dark:hover:drop-shadow-[0_0_8px_rgba(0,202,255,0.7)] hover:drop-shadow-[0_0_8px_rgba(0,136,169,0.7)]">
@@ -127,7 +127,7 @@ export default function Navbar() {
             <button 
               className="flex flex-col justify-center items-center w-8 h-8 gap-1.5 ml-1"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle Menu"
+              aria-label={ARIA.toggleMenu}
             >
               <span 
                 className={`w-6 h-0.5 bg-foreground transition-all duration-300 
@@ -156,28 +156,28 @@ export default function Navbar() {
           className="text-xl font-medium"
           onClick={() => setMobileMenuOpen(false)}
         >
-          Home
+          {NAV.home}
         </Link>
         <Link 
           href="/#about" 
           className="text-xl font-medium"
           onClick={() => setMobileMenuOpen(false)}
         >
-          About
+          {NAV.about}
         </Link>
         <Link 
           href="/#experience" 
           className="text-xl font-medium"
           onClick={() => setMobileMenuOpen(false)}
         >
-          Experience
+          {NAV.experience}
         </Link>
         <Link 
           href="/projects" 
           className="text-xl font-medium"
           onClick={() => setMobileMenuOpen(false)}
         >
-          Projects
+          {NAV.projects}
         </Link>
       </div>
     </header>

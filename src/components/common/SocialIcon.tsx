@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ARIA } from "@/constants/theme";
+import { ARIA } from "@/constants/strings";
 
 interface SocialIconProps {
   platform: 'github' | 'linkedin';

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { getLatestProjects } from "@/data/projects";
+import { SECTIONS, NAV, SOCIAL } from "@/constants/strings";
 
 export default function Projects() {
   // Get the 3 most recent projects
@@ -19,7 +20,7 @@ export default function Projects() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Projects
+            {SECTIONS.projects}
             <span className="absolute -bottom-3 left-0 w-16 h-1 bg-alexa-blue"></span>
           </motion.h2>
           
@@ -33,7 +34,7 @@ export default function Projects() {
               href="/projects" 
               className="text-alexa-blue hover:text-alexa-blue-dark font-medium"
             >
-              View all projects
+              {NAV.viewAllProjects}
               <span className="ml-1 inline-block transform translate-y-px">→</span>
             </Link>
           </motion.div>
@@ -73,7 +74,7 @@ export default function Projects() {
                   href={`/projects/${project.id}`} 
                   className="inline-block text-alexa-blue hover:text-alexa-blue-dark font-medium"
                 >
-                  View Details
+                  {NAV.viewDetails}
                   <span className="ml-1 inline-block transform translate-y-px">→</span>
                 </Link>
                 
@@ -84,7 +85,7 @@ export default function Projects() {
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-foreground/70 hover:text-alexa-blue transition-colors"
-                      aria-label="GitHub"
+                      aria-label={SOCIAL.platformName.github}
                       whileHover={{ scale: 1.1 }}
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">

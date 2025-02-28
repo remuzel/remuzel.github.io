@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { SECTIONS } from "@/constants/strings";
 
 // Experience timeline data
 const experiences = [
@@ -35,7 +36,7 @@ export default function Experience() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          Experience
+          {SECTIONS.experience}
           <span className="absolute -bottom-3 left-0 w-16 h-1 bg-alexa-blue"></span>
         </motion.h2>
         

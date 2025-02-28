@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { COMMON, ALT } from "@/constants/strings";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,31 +17,31 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://remuzel.github.io"),
-  title: "Remi Uzel",
+  title: COMMON.name,
   description: "Portfolio of Remi Uzel, Software Development Engineer at Amazon Alexa, specializing in backend systems, AWS cloud architecture, and distributed systems.",
   keywords: ["software engineer", "AWS", "Amazon", "Alexa", "backend engineer", "cloud computing", "distributed systems", "serverless"],
-  authors: [{ name: "Remi Uzel", url: "https://remuzel.github.io" }],
-  creator: "Remi Uzel",
+  authors: [{ name: COMMON.name, url: "https://remuzel.github.io" }],
+  creator: COMMON.name,
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://remuzel.github.io",
-    title: "Remi Uzel | Portfolio",
-    description: "Software Development Engineer at Amazon Alexa",
-    siteName: "Remi Uzel Portfolio",
+    title: `${COMMON.name} | Portfolio`,
+    description: COMMON.title,
+    siteName: `${COMMON.name} Portfolio`,
     images: [
       {
         url: "/images/logo.png", 
         width: 1200,
         height: 630,
-        alt: "Remi Uzel"
+        alt: ALT.portrait
       }
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Remi Uzel | Portfolio",
-    description: "Software Development Engineer at Amazon Alexa",
+    title: `${COMMON.name} | Portfolio`,
+    description: COMMON.title,
     images: ["/images/logo.png"],
   },
   icons: {
