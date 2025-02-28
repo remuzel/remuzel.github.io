@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getProjectById, projects } from "@/data/projects";
 import { notFound } from "next/navigation";
-import { COMMON, NAV, SECTIONS, ERRORS } from "@/constants/strings";
+import { COMMON, NAV, SECTIONS, ERRORS, META } from "@/constants/strings";
 
 // Generate metadata for the page
 export function generateMetadata({ params }: { params: { id: string } }) {
@@ -11,6 +11,17 @@ export function generateMetadata({ params }: { params: { id: string } }) {
   return {
     title: `${project.title} | ${COMMON.name}`,
     description: project.description,
+    openGraph: {
+      title: `${project.title} | ${META.defaultTitle}`,
+      description: project.description,
+      type: "article",
+      images: project.image ? [{ url: project.image, alt: `${project.title} screenshot` }] : undefined,
+    },
+    twitter: {
+      title: `${project.title} | ${META.defaultTitle}`,
+      description: project.description,
+      images: project.image ? [project.image] : undefined,
+    }
   };
 }
 

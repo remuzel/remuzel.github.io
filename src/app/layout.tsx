@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { COMMON, ALT } from "@/constants/strings";
+import { COMMON, ALT, META } from "@/constants/strings";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,22 +16,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://remuzel.github.io"),
+  metadataBase: new URL(META.baseUrl),
   title: COMMON.name,
-  description: "Portfolio of Remi Uzel, Software Development Engineer at Amazon Alexa, specializing in backend systems, AWS cloud architecture, and distributed systems.",
-  keywords: ["software engineer", "AWS", "Amazon", "Alexa", "backend engineer", "cloud computing", "distributed systems", "serverless"],
-  authors: [{ name: COMMON.name, url: "https://remuzel.github.io" }],
+  description: META.description,
+  keywords: META.keywords,
+  authors: [{ name: COMMON.name, url: COMMON.websiteUrl }],
   creator: COMMON.name,
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://remuzel.github.io",
-    title: `${COMMON.name} | Portfolio`,
+    type: META.og.type,
+    locale: META.og.locale,
+    url: META.baseUrl,
+    title: META.defaultTitle,
     description: COMMON.title,
-    siteName: `${COMMON.name} Portfolio`,
+    siteName: META.og.siteName,
     images: [
       {
-        url: "/images/logo.png", 
+        url: META.assets.logo, 
         width: 1200,
         height: 630,
         alt: ALT.portrait
@@ -40,14 +40,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${COMMON.name} | Portfolio`,
+    title: META.defaultTitle,
     description: COMMON.title,
-    images: ["/images/logo.png"],
+    images: [META.assets.logo],
   },
   icons: {
     icon: [
       {
-        url: "/images/logo.png",
+        url: META.assets.favicon,
         type: "image/png"
       }
     ]
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#00CAFF" },
-    { media: "(prefers-color-scheme: dark)", color: "#232F3E" }
+    { media: "(prefers-color-scheme: light)", color: META.themeColors.light },
+    { media: "(prefers-color-scheme: dark)", color: META.themeColors.dark }
   ],
   width: "device-width",
   initialScale: 1,
@@ -73,7 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="canonical" href="https://remuzel.github.io" />
+        <link rel="canonical" href={META.baseUrl} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

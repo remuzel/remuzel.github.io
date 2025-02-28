@@ -1,11 +1,19 @@
 import Link from "next/link";
 import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
-import { COMMON, NAV, SECTIONS, PROJECTS, SOCIAL, ARIA } from "@/constants/strings";
+import { COMMON, NAV, SECTIONS, PROJECTS, SOCIAL, ARIA, META } from "@/constants/strings";
 
 export const metadata = {
   title: `${SECTIONS.projects} | ${COMMON.name}`,
   description: 'Browse through my portfolio of projects, including AWS backend services, web experiments, and more.',
+  openGraph: {
+    title: `${SECTIONS.projects} | ${META.defaultTitle}`,
+    description: PROJECTS.intro,
+  },
+  twitter: {
+    title: `${SECTIONS.projects} | ${META.defaultTitle}`,
+    description: PROJECTS.intro,
+  }
 };
 
 export default function ProjectsPage() {

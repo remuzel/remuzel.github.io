@@ -13,6 +13,7 @@ export const COMMON = {
   name: "Remi Uzel",
   title: "Software Development Engineer at Amazon Alexa",
   copyright: (year: number) => `© ${year} Remi Uzel. All rights reserved.`,
+  websiteUrl: "https://remuzel.github.io",
 }
 
 // Navigation related strings
@@ -31,7 +32,7 @@ export const NAV = {
 export const SECTIONS = {
   aboutMe: "About Me",
   experience: "Experience",
-  projects: "Projects",
+  projects: "Projects"
 }
 
 // Image alt texts
@@ -82,4 +83,44 @@ export const ABOUT = {
 // Projects section content
 export const PROJECTS = {
   intro: "Browse through my portfolio of projects and experiments",
+}
+
+// SEO and meta content
+export const META = {
+  // Basic metadata
+  baseUrl: "https://remuzel.github.io",
+  defaultTitle: "Remi Uzel | Portfolio",
+  titleTemplate: "%s | Remi Uzel",
+  description: "Portfolio of Remi Uzel, Software Development Engineer at Amazon Alexa, specializing in backend systems, AWS cloud architecture, and distributed systems.",
+
+  // Keywords
+  keywords: [
+    "software engineer",
+    "AWS",
+    "Amazon",
+    "Alexa",
+    "backend engineer",
+    "cloud computing",
+    "distributed systems",
+    "serverless"
+  ],
+
+  // Open Graph
+  og: {
+    type: "website",
+    locale: "en_GB",
+    siteName: "Remi Uzel Portfolio",
+  },
+
+  // Theme colors
+  themeColors: {
+    light: "#00CAFF",
+    dark: "#232F3E"
+  },
+
+  // Assets
+  assets: {
+    logo: "/images/logo.png",
+    favicon: "/images/logo.png"
+  }
 }
