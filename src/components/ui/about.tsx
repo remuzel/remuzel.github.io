@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { SECTIONS, ALT, ABOUT } from "@/constants/strings";
 
-export default function About() {
+export default function About(): React.ReactElement {
   return (
     <section id="about" className="py-20 md:py-32 bg-card-bg">
       <div className="container mx-auto px-4">
-        <motion.h2 
+        <motion.h2
           className="text-3xl md:text-4xl font-bold mb-16 relative inline-block"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -16,9 +16,9 @@ export default function About() {
           transition={{ duration: 0.5 }}
         >
           {SECTIONS.aboutMe}
-          <span className="absolute -bottom-3 left-0 w-16 h-1 bg-alexa-blue"></span>
+          <span className="absolute -bottom-3 left-0 w-16 h-1 bg-alexa-blue"/>
         </motion.h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -28,7 +28,7 @@ export default function About() {
             className="flex justify-center"
           >
             <div className="relative w-[280px] aspect-[4/5]">
-              <div className="absolute inset-0 border-2 border-alexa-blue rounded-lg -translate-x-4 -translate-y-4 z-0"></div>
+              <div className="absolute inset-0 border-2 border-alexa-blue rounded-lg -translate-x-4 -translate-y-4 z-0"/>
               <div className="relative h-full w-full rounded-lg overflow-hidden z-10 shadow-md">
                 <Image
                   src="/images/photo.jpg"
@@ -40,7 +40,7 @@ export default function About() {
               </div>
             </div>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}

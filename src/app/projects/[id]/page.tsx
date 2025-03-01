@@ -1,13 +1,27 @@
 import Link from "next/link";
 import { getProjectById, projects } from "@/data/projects";
 import { notFound } from "next/navigation";
-import { COMMON, NAV, SECTIONS, ERRORS, META } from "@/constants/strings";
+import { COMMON, NAV, ERRORS, META } from "@/constants/strings";
 
 // Generate metadata for the page
-export function generateMetadata({ params }: { params: { id: string } }) {
+export function generateMetadata({ params }: { params: { id: string } }): {
+  title: string;
+  description?: string;
+  openGraph?: {
+    title: string;
+    description: string;
+    type: string;
+    images?: { url: string; alt: string }[];
+  };
+  twitter?: {
+    title: string;
+    description: string;
+    images?: string[];
+  };
+} {
   const project = getProjectById(params.id);
   if (!project) return { title: ERRORS.notFound.title };
-  
+
   return {
     title: `${project.title} | ${COMMON.name}`,
     description: project.description,
@@ -26,26 +40,26 @@ export function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 // Generate static paths for all projects
-export function generateStaticParams() {
+export function generateStaticParams(): Array<{ id: string }> {
   return projects.map(project => ({
     id: project.id,
   }));
 }
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
+export default function ProjectPage({ params }: { params: { id: string } }): React.ReactElement {
   const project = getProjectById(params.id);
-  
+
   // If project not found, return 404
   if (!project) {
     notFound();
   }
-  
+
   return (
     <main className="pt-24 pb-20">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
-          <Link 
-            href="/projects" 
+          <Link
+            href="/projects"
             className="inline-flex items-center mb-6 text-muted hover:text-alexa-blue transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className="mr-2">
@@ -57,7 +71,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
           <div className="bg-card-bg rounded-lg overflow-hidden border border-border shadow-sm p-8">
             <div className="flex justify-between flex-wrap gap-4 mb-6">
               <h1 className="text-3xl md:text-4xl font-bold">{project.title}</h1>
-              
+
               <div className="text-muted">
                 {new Date(project.date).toLocaleDateString('en-US', {
                   year: 'numeric',
@@ -66,10 +80,10 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                 })}
               </div>
             </div>
-            
+
             <div className="flex flex-wrap gap-2 mb-8">
               {project.tags.map((tag, index) => (
-                <span 
+                <span
                   key={index}
                   className="text-xs px-2 py-1 rounded-full bg-alexa-blue/10 text-alexa-blue"
                 >
@@ -77,21 +91,21 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                 </span>
               ))}
             </div>
-            
+
             <div className="mb-8">
               <h2 className="text-xl font-semibold mb-4">Overview</h2>
               <p className="text-foreground/90 mb-4">{project.description}</p>
-              
+
               <div className="text-foreground/80 space-y-4 whitespace-pre-line">
                 {project.longDescription}
               </div>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-4">
               {project.github && (
-                <a 
-                  href={project.github} 
-                  target="_blank" 
+                <a
+                  href={project.github}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-foreground text-background py-2 px-4 rounded-lg hover:bg-alexa-blue transition-colors"
                 >
@@ -101,11 +115,11 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                   View on GitHub
                 </a>
               )}
-              
+
               {project.liveUrl && (
-                <a 
-                  href={project.liveUrl} 
-                  target="_blank" 
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-alexa-blue text-white py-2 px-4 rounded-lg hover:bg-alexa-blue-dark transition-colors"
                 >
@@ -118,16 +132,16 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
               )}
             </div>
           </div>
-          
+
           <div className="mt-12 flex justify-between items-center">
-            <Link 
+            <Link
               href="/projects"
               className="text-muted hover:text-alexa-blue transition-colors"
             >
               ← {NAV.projects}
             </Link>
-            
-            <Link 
+
+            <Link
               href="/"
               className="text-muted hover:text-alexa-blue transition-colors"
             >

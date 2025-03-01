@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { projects } from "@/data/projects";
-import { motion } from "framer-motion";
 import { COMMON, NAV, SECTIONS, PROJECTS, SOCIAL, ARIA, META } from "@/constants/strings";
 
 export const metadata = {
@@ -16,7 +15,7 @@ export const metadata = {
   }
 };
 
-export default function ProjectsPage() {
+export default function ProjectsPage(): React.ReactElement {
   // Sort projects by date (newest first)
   const sortedProjects = [...projects].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
@@ -29,8 +28,8 @@ export default function ProjectsPage() {
           <h1 className="text-3xl md:text-4xl font-bold mb-2">{SECTIONS.projects}</h1>
           <p className="text-muted mb-10">{PROJECTS.intro}</p>
 
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="inline-flex items-center mb-12 text-muted hover:text-alexa-blue transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className="mr-2">
@@ -40,8 +39,8 @@ export default function ProjectsPage() {
           </Link>
 
           <div className="space-y-8">
-            {sortedProjects.map((project, index) => (
-              <div 
+            {sortedProjects.map((project) => (
+              <div
                 key={project.id}
                 className="bg-card-bg rounded-lg overflow-hidden border border-border shadow-sm hover:shadow-md transition-all p-6"
               >
@@ -55,12 +54,12 @@ export default function ProjectsPage() {
                     })}
                   </div>
                 </div>
-                
+
                 <p className="text-foreground/80 mb-4">{project.description}</p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, tagIndex) => (
-                    <span 
+                    <span
                       key={tagIndex}
                       className="text-xs px-2 py-1 rounded-full bg-alexa-blue/10 text-alexa-blue"
                     >
@@ -68,21 +67,21 @@ export default function ProjectsPage() {
                     </span>
                   ))}
                 </div>
-                
+
                 <div className="flex justify-between items-center">
-                  <Link 
-                    href={`/projects/${project.id}`} 
+                  <Link
+                    href={`/projects/${project.id}`}
                     className="inline-block text-alexa-blue hover:text-alexa-blue-dark font-medium"
                   >
                     {NAV.viewDetails}
                     <span className="ml-1 inline-block transform translate-y-px">→</span>
                   </Link>
-                  
+
                   <div className="flex items-center gap-3">
                     {project.github && (
-                      <a 
-                        href={project.github} 
-                        target="_blank" 
+                      <a
+                        href={project.github}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-foreground/70 hover:text-alexa-blue transition-colors"
                         aria-label={ARIA.socialLink(SOCIAL.platformName.github)}
@@ -92,11 +91,11 @@ export default function ProjectsPage() {
                         </svg>
                       </a>
                     )}
-                    
+
                     {project.liveUrl && (
-                      <a 
-                        href={project.liveUrl} 
-                        target="_blank" 
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-foreground/70 hover:text-alexa-blue transition-colors"
                         aria-label="Live Demo"

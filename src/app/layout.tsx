@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: META.og.siteName,
     images: [
       {
-        url: META.assets.logo, 
+        url: META.assets.logo,
         width: 1200,
         height: 630,
         alt: ALT.portrait
@@ -69,11 +69,11 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>): React.ReactElement {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="canonical" href={META.baseUrl} />
+        <link rel="canonical" href={META.baseUrl}/>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

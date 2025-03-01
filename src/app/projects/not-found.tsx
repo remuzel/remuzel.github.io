@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ERRORS, NAV } from "@/constants/strings";
 
-export default function NotFound() {
+export default function NotFound(): React.ReactElement {
   return (
     <main className="pt-24 pb-20 min-h-[70vh] flex flex-col items-center justify-center">
       <div className="container mx-auto px-4 text-center">
@@ -11,13 +11,13 @@ export default function NotFound() {
           {ERRORS.notFound.message}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link 
+          <Link
             href="/projects"
             className="inline-flex items-center justify-center gap-2 bg-foreground text-background py-2 px-6 rounded-lg hover:bg-alexa-blue transition-colors"
           >
             {NAV.viewAllProjects}
           </Link>
-          <Link 
+          <Link
             href="/"
             className="inline-flex items-center justify-center gap-2 border border-border py-2 px-6 rounded-lg hover:border-alexa-blue hover:text-alexa-blue transition-colors"
           >

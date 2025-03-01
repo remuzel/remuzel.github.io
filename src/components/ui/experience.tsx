@@ -4,7 +4,7 @@ import { SECTIONS } from "@/constants/strings";
 import { getAllExperiences } from "@/data/experiences";
 import { Timeline, TimelineItem } from "@/components/ui/timeline";
 
-export default function Experience() {
+export default function Experience(): React.ReactElement {
   const experiences = getAllExperiences();
 
   return (
@@ -21,6 +21,7 @@ export default function Experience() {
               description={exp.description}
               technologies={exp.technologies}
               highlights={exp.highlights}
+              links={exp.links}
             />
           ))}
         </Timeline>

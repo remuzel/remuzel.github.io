@@ -11,12 +11,12 @@ interface SocialIconProps {
 
 const icons = {
   github: (size: number) => (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width={size} 
-      height={size} 
-      fill="currentColor" 
-      viewBox="0 0 16 16" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      fill="currentColor"
+      viewBox="0 0 16 16"
       className="dark:hover:drop-shadow-[0_0_8px_rgba(0,202,255,0.7)] hover:drop-shadow-[0_0_8px_rgba(0,136,169,0.7)]"
       aria-hidden="true"
     >
@@ -24,12 +24,12 @@ const icons = {
     </svg>
   ),
   linkedin: (size: number) => (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width={size} 
-      height={size} 
-      fill="currentColor" 
-      viewBox="0 0 16 16" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      fill="currentColor"
+      viewBox="0 0 16 16"
       className="dark:hover:drop-shadow-[0_0_8px_rgba(0,202,255,0.7)] hover:drop-shadow-[0_0_8px_rgba(0,136,169,0.7)]"
       aria-hidden="true"
     >
@@ -38,11 +38,11 @@ const icons = {
   )
 };
 
-export default function SocialIcon({ platform, url, size = 20 }: SocialIconProps) {
+export default function SocialIcon({ platform, url, size = 20 }: SocialIconProps): JSX.Element {
   return (
-    <motion.a 
-      href={url} 
-      target="_blank" 
+    <motion.a
+      href={url}
+      target="_blank"
       rel="noopener noreferrer"
       className="text-foreground/80 hover:text-alexa-blue transition-colors p-1"
       aria-label={ARIA.socialLink(platform.charAt(0).toUpperCase() + platform.slice(1))}

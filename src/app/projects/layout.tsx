@@ -5,12 +5,12 @@ export default function ProjectsLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}): React.ReactElement {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       {children}
-      <Footer />
+      <Footer/>
     </>
   );
 }

@@ -4,17 +4,17 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ARIA } from "@/constants/strings";
 
-export default function ThemeToggle() {
+export default function ThemeToggle(): React.ReactElement | null {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [mounted, setMounted] = useState(false);
-  
+
   // Initialize theme from localStorage or system preference
   useEffect(() => {
     setMounted(true);
-    
+
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
     const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    
+
     // Set initial theme based on saved preference or system preference
     if (savedTheme) {
       setTheme(savedTheme);
@@ -26,9 +26,9 @@ export default function ThemeToggle() {
   // Apply theme changes to document
   useEffect(() => {
     if (!mounted) return;
-    
+
     const root = document.documentElement;
-    
+
     if (theme === "dark") {
       root.classList.add("dark");
       root.classList.remove("light");
@@ -36,12 +36,12 @@ export default function ThemeToggle() {
       root.classList.add("light");
       root.classList.remove("dark");
     }
-    
+
     localStorage.setItem("theme", theme);
   }, [theme, mounted]);
 
   // Toggle between light and dark themes
-  const toggleTheme = () => {
+  const toggleTheme = (): void => {
     setTheme(prevTheme => prevTheme === "light" ? "dark" : "light");
   };
 
@@ -53,7 +53,7 @@ export default function ThemeToggle() {
 
   // Don't render anything during SSR to avoid hydration mismatch
   if (!mounted) {
-    return <div className="w-10 h-10 rounded-full flex items-center justify-center bg-transparent"></div>;
+    return <div className="w-10 h-10 rounded-full flex items-center justify-center bg-transparent"/>;
   }
 
   return (
@@ -66,15 +66,15 @@ export default function ThemeToggle() {
     >
       <AnimatePresence mode="wait" initial={false}>
         {theme === "dark" ? (
-          <motion.svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="20" 
-            height="20" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
+          <motion.svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
             strokeLinejoin="round"
             key="sun-icon"
             variants={iconVariants}
@@ -83,26 +83,26 @@ export default function ThemeToggle() {
             exit="exit"
             className="text-foreground transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_16px_rgba(255,255,255,1.0)] group-hover:scale-110"
           >
-            <circle cx="12" cy="12" r="4" />
-            <path d="M12 2v2" />
-            <path d="M12 20v2" />
-            <path d="m4.93 4.93 1.41 1.41" />
-            <path d="m17.66 17.66 1.41 1.41" />
-            <path d="M2 12h2" />
-            <path d="M20 12h2" />
-            <path d="m6.34 17.66-1.41 1.41" />
-            <path d="m19.07 4.93-1.41 1.41" />
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2"/>
+            <path d="M12 20v2"/>
+            <path d="m4.93 4.93 1.41 1.41"/>
+            <path d="m17.66 17.66 1.41 1.41"/>
+            <path d="M2 12h2"/>
+            <path d="M20 12h2"/>
+            <path d="m6.34 17.66-1.41 1.41"/>
+            <path d="m19.07 4.93-1.41 1.41"/>
           </motion.svg>
         ) : (
-          <motion.svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="20" 
-            height="20" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
+          <motion.svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
             strokeLinejoin="round"
             key="moon-icon"
             variants={iconVariants}
@@ -111,7 +111,7 @@ export default function ThemeToggle() {
             exit="exit"
             className="text-foreground transition-all duration-300 group-hover:text-[#121920] group-hover:drop-shadow-[0_0_16px_rgba(18,25,32,0.9)] group-hover:scale-110"
           >
-            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
           </motion.svg>
         )}
       </AnimatePresence>

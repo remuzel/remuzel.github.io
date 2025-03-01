@@ -1,6 +1,6 @@
 /**
  * Application Strings
- * 
+ *
  * Centralized string constants for the entire application.
  * This approach makes it easier to:
  * 1. Maintain consistent wording
@@ -12,7 +12,7 @@
 export const COMMON = {
   name: "Remi Uzel",
   title: "Software Development Engineer at Amazon Alexa",
-  copyright: (year: number) => `© ${year} Remi Uzel. All rights reserved.`,
+  copyright: (year: number): string => `© ${year} Remi Uzel. All rights reserved.`,
   websiteUrl: "https://remuzel.github.io",
 }
 
@@ -39,7 +39,7 @@ export const SECTIONS = {
 export const ALT = {
   logo: "Remi Uzel Logo",
   portrait: "Remi Uzel",
-  project: (name: string) => `${name} project screenshot`,
+  project: (name: string): string => `${name} project screenshot`,
 }
 
 // Error messages
@@ -64,9 +64,9 @@ export const SOCIAL = {
 // Aria labels for accessibility
 export const ARIA = {
   toggleMenu: "Toggle Menu",
-  toggleTheme: (theme: 'light' | 'dark') => 
+  toggleTheme: (theme: 'light' | 'dark'): string =>
     `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`,
-  socialLink: (platform: string) => 
+  socialLink: (platform: string): string =>
     `Visit Remi Uzel's ${platform} profile`,
 }
 
@@ -99,7 +99,10 @@ export const META = {
     "AWS",
     "Amazon",
     "Alexa",
+    "Prime Video",
     "backend engineer",
+    "java developer",
+    "python developer",
     "cloud computing",
     "distributed systems",
     "serverless"

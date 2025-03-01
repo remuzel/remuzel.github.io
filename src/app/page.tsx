@@ -5,15 +5,15 @@ import Experience from "@/components/ui/experience";
 import Projects from "@/components/ui/projects";
 import Footer from "@/components/ui/footer";
 
-export default function Home() {
+export default function Home(): React.ReactElement {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Footer />
+      <Navbar/>
+      <Hero/>
+      <About/>
+      <Experience/>
+      <Projects/>
+      <Footer/>
     </>
   );
 }

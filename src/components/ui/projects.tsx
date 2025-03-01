@@ -5,15 +5,15 @@ import Link from "next/link";
 import { getLatestProjects } from "@/data/projects";
 import { SECTIONS, NAV, SOCIAL } from "@/constants/strings";
 
-export default function Projects() {
+export default function Projects(): React.ReactElement {
   // Get the 3 most recent projects
   const latestProjects = getLatestProjects(3);
-  
+
   return (
     <section id="projects" className="py-20 md:py-32 bg-card-bg">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-end mb-16">
-          <motion.h2 
+          <motion.h2
             className="text-3xl md:text-4xl font-bold relative inline-block"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -21,17 +21,17 @@ export default function Projects() {
             transition={{ duration: 0.5 }}
           >
             {SECTIONS.projects}
-            <span className="absolute -bottom-3 left-0 w-16 h-1 bg-alexa-blue"></span>
+            <span className="absolute -bottom-3 left-0 w-16 h-1 bg-alexa-blue"/>
           </motion.h2>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Link 
-              href="/projects" 
+            <Link
+              href="/projects"
               className="text-alexa-blue hover:text-alexa-blue-dark font-medium"
             >
               {NAV.viewAllProjects}
@@ -39,10 +39,10 @@ export default function Projects() {
             </Link>
           </motion.div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {latestProjects.map((project, index) => (
-            <motion.div 
+            <motion.div
               key={project.id}
               className="bg-background rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow p-6 border border-border"
               initial={{ opacity: 0, y: 20 }}
@@ -52,10 +52,10 @@ export default function Projects() {
             >
               <h3 className="text-xl font-bold mb-3">{project.title}</h3>
               <p className="text-foreground/80 mb-4">{project.description}</p>
-              
+
               <div className="flex flex-wrap gap-2 mb-5">
                 {project.tags.slice(0, 4).map((tag, tagIndex) => (
-                  <span 
+                  <span
                     key={tagIndex}
                     className="text-xs px-2 py-1 rounded-full bg-alexa-blue/10 text-alexa-blue"
                   >
@@ -68,21 +68,21 @@ export default function Projects() {
                   </span>
                 )}
               </div>
-              
+
               <div className="flex justify-between items-center">
-                <Link 
-                  href={`/projects/${project.id}`} 
+                <Link
+                  href={`/projects/${project.id}`}
                   className="inline-block text-alexa-blue hover:text-alexa-blue-dark font-medium"
                 >
                   {NAV.viewDetails}
                   <span className="ml-1 inline-block transform translate-y-px">→</span>
                 </Link>
-                
+
                 <div className="flex items-center gap-3">
                   {project.github && (
-                    <motion.a 
-                      href={project.github} 
-                      target="_blank" 
+                    <motion.a
+                      href={project.github}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-foreground/70 hover:text-alexa-blue transition-colors"
                       aria-label={SOCIAL.platformName.github}
@@ -93,11 +93,11 @@ export default function Projects() {
                       </svg>
                     </motion.a>
                   )}
-                  
+
                   {project.liveUrl && (
-                    <motion.a 
-                      href={project.liveUrl} 
-                      target="_blank" 
+                    <motion.a
+                      href={project.liveUrl}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-foreground/70 hover:text-alexa-blue transition-colors"
                       aria-label="Live Demo"
