@@ -7,52 +7,81 @@ export interface Experience {
   logo?: string; // Path to company logo
   technologies?: string[];
   highlights?: string[];
+  links?: Array<{
+    text: string;
+    url: string;
+    isExternal?: boolean;
+  }>;
 }
 
 export const experiences: Experience[] = [
   {
-    id: "amazon-alexa",
-    period: "2021 - Present",
-    title: "SDE",
-    company: "Amazon Alexa",
-    logo: "/images/logos/amazon.svg",
-    description: "Leading the development of scalable backend services for Alexa voice assistant, working with distributed systems handling millions of requests. Implementing AWS-based solutions including Lambda, DynamoDB, and SQS.",
-    technologies: ["AWS Lambda", "DynamoDB", "SQS", "Java", "TypeScript"],
+    id: "amazon-alexa-sde-ii",
+    period: "Jul 2022 - Present",
+    title: "Software Development Engineer - SDE II",
+    company: "Amazon - Alexa",
+    logo: "/images/logos/amazon-alexa.svg",
+    description: "",
+    technologies: ["AWS Lambda", "DynamoDB", "SQS", "CloudWatch", "Java", "Kotlin", "AWS CDK - Typescript", "TCFv2 Framework"],
     highlights: [
-      "Designed and developed core services for Alexa voice assistant",
-      "Led architecture decisions for system handling millions of daily requests",
-      "Implemented performance optimizations resulting in 30% latency reduction",
-      "Mentored junior engineers and established best practices"
     ]
   },
   {
-    id: "previous-company",
-    period: "2018 - 2021",
-    title: "Software Engineer",
-    company: "Previous Company",
-    logo: "/images/logos/tech-company.svg",
-    description: "Designed and developed microservices architecture for a high-traffic application. Implemented continuous integration/deployment pipelines and contributed to system architecture decisions.",
-    technologies: ["Node.js", "Docker", "Kubernetes", "MongoDB", "Redis"],
+    id: "amazon-alexa-sde-i",
+    period: "Oct 2020 - Jul 2022",
+    title: "Junior Software Development Engineer - SDE I",
+    company: "Amazon - Alexa",
+    logo: "/images/logos/amazon-alexa.svg",
+    description: "In the Alexa International team, we're responsible for championing features that delight customers outside of the US. My first major contribution was the development, launch and maintenance of a new \"Karaoke on Alexa\" feature for customers in Japan, Spain, Mexico and the UK in partnership with Yokee and JOYSOUND.",
+    technologies: ["ECS/Fargate", "DynamoDB", "CloudWatch", "Java", "Kotlin", "AWS CDK - Typescript", "Alexa Skills"],
     highlights: [
-      "Architected microservices platform serving 100K+ daily users",
-      "Implemented CI/CD pipelines reducing deployment time by 70%",
-      "Optimized database queries improving application performance",
-      "Collaborated with product team to define technical requirements"
+      "Developed a highly available ECS/Fargate service across three major AWS region (us-east-1, us-west-2 and eu-west-1)",
+      "Implement and maintained integrations with external partners Yokee and JOYSOUND",
+    ],
+    links: [
+      {
+        text: "Yokee",
+        url: "https://yokeemusic.com/",
+        isExternal: true
+      },
+      {
+        text: "JOYSOUND",
+        url: "https://gl.joysound.com/en/",
+        isExternal: true
+      }
     ]
   },
   {
-    id: "first-company",
-    period: "2016 - 2018",
-    title: "Junior Developer",
-    company: "First Company",
-    logo: "/images/logos/startup.svg",
-    description: "Contributed to backend API development and integration with third-party services. Improved existing systems and participated in code reviews and testing.",
-    technologies: ["Python", "Django", "PostgreSQL", "RESTful APIs"],
+    id: "amazon-prime-video",
+    period: "Jun 2019 - Sep 2019",
+    title: "Software Development Engineer - Intern",
+    company: "Amazon - Prime Video",
+    logo: "/images/logos/amazon-prime-video.svg",
+    description: "Working in the Video Quality Analysis team, we're responsible for automating QA defect detection in Prime Video's catalog. My project involved engineering a real-time video analysis system that identified perceptible mismatches between subtitles and spoken dialogue using computer vision and voice activity detection.",
+    technologies: ["AWS Lambda", "KVS", "S3", "Python", "OpenCV", "WebRTC VAD"],
     highlights: [
-      "Developed RESTful APIs for mobile and web applications",
-      "Integrated payment processing and third-party services",
-      "Improved test coverage and implemented automated testing",
-      "Participated in regular code reviews and documentation"
+      "Built real-time video analysis system to detect subtitle-speech mismatches at human perception levels",
+      "Integrated OpenCV SSIM and OCR for subtitle detection, WebRTC VAD for speech recognition",
+      "Implemented serverless architecture using AWS Lambda, KVS, and S3 for scalable processing",
+      "Optimized performance with selective frame processing based on scene/subtitle changes",
+      "Leveraged statistical VAD model for improved async audio processing accuracy"
+    ]
+  },
+  {
+    id: "icl-urop",
+    period: "Jul 2018 - Aug 2018",
+    title: "Undergraduate Research Fellow",
+    company: "Imperial College London",
+    logo: "/images/logos/imperial-college-london.svg",
+    description: "Research project in Threat Modelling across human, physical & cyber vulnerabilities with Prof. Emil Lupu.",
+    technologies: ["Python", "Threat Modelling", "Wireshark", "Burl Suite"],
+    highlights: [],
+    links: [
+      {
+        text: "Prof. Emil Lupu",
+        url: "https://profiles.imperial.ac.uk/e.c.lupu/about",
+        isExternal: true
+      }
     ]
   }
 ];
