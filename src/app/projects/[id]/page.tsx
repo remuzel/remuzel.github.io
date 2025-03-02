@@ -4,12 +4,27 @@ import { notFound } from "next/navigation";
 import { COMMON, NAV, ERRORS, META } from "@/constants/strings";
 import type { Metadata } from "next";
 
+// Generate static paths for all projects
+export async function generateStaticParams(): Promise<Array<{ id: string }>> {
+  // If no projects exist, return at least one placeholder id to satisfy static generation
+  if (projects.length === 0) {
+    return [{ id: "placeholder" }];
+  }
+  return projects.map(project => ({
+    id: project.id,
+  }));
+}
+
 // Generate metadata for the page
 export async function generateMetadata(
   { params }: { params: Promise<{ id: string }> | { id: string } }
 ): Promise<Metadata> {
   // Await params first
   const resolvedParams = await params;
+  // Handle the placeholder case for static generation
+  if (resolvedParams.id === "placeholder" && projects.length === 0) {
+    return { title: ERRORS.notFound.title };
+  }
   const project = await getProjectById(resolvedParams.id);
   if (!project) return { title: ERRORS.notFound.title };
 
@@ -30,20 +45,16 @@ export async function generateMetadata(
   };
 }
 
-// Generate static paths for all projects
-export async function generateStaticParams(): Promise<Array<{ id: string }>> {
-  return projects.map(project => ({
-    id: project.id,
-  }));
-}
-
 export default async function Page(
   { params }: { params: Promise<{ id: string }> | { id: string } }
 ): Promise<React.ReactElement> {
   // Await params first
   const resolvedParams = await params;
+  // Handle the placeholder case for static generation
+  if (resolvedParams.id === "placeholder" && projects.length === 0) {
+    notFound();
+  }
   const project = await getProjectById(resolvedParams.id);
-
   // If project not found, return 404
   if (!project) {
     notFound();
