@@ -19,10 +19,11 @@ export default function Projects(): React.ReactElement {
       <div className="flex justify-between items-end mb-16">
         <SectionHeader title={SECTIONS.projects}/>
 
-        <motion.div
+        <Card
           {...FADE_IN}
           whileInView={FADE_IN.animate}
           transition={{ ...FADE_IN.transition, delay: 0.2 }}
+          enableDefaultStyles={false}
         >
           <Link
             href="/projects"
@@ -31,16 +32,17 @@ export default function Projects(): React.ReactElement {
             {NAV.viewAllProjects}
             <span className="ml-1 inline-block transform translate-y-px">→</span>
           </Link>
-        </motion.div>
+        </Card>
       </div>
 
       {latestProjects.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {latestProjects.map((project, index) => (
-            <motion.div
+            <Card
               key={project.id}
               {...getStaggeredFadeIn(index)}
               whileInView={FADE_IN_UP.animate}
+              enableDefaultStyles={false}
             >
               <Card>
                 <h3 className="text-xl font-bold mb-3">{project.title}</h3>
@@ -100,13 +102,14 @@ export default function Projects(): React.ReactElement {
                   </div>
                 </div>
               </Card>
-            </motion.div>
+            </Card>
           ))}
         </div>
       ) : (
-        <motion.div
+        <Card
           {...FADE_IN_UP}
           whileInView={FADE_IN_UP.animate}
+          enableDefaultStyles={false}
         >
           <Card className="p-10 text-center">
             <h3 className="text-2xl font-bold mb-3 text-alexa-blue">{PROJECTS.comingSoon.title}</h3>
@@ -114,7 +117,7 @@ export default function Projects(): React.ReactElement {
               {PROJECTS.comingSoon.message}
             </p>
           </Card>
-        </motion.div>
+        </Card>
       )}
     </Section>
   );

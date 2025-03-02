@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { COMMON, NAV } from "@/constants/strings";
+import Card from "@/components/common/Card";
 
 export default function Hero(): React.ReactElement {
   // For Alexa voice visualization animation
@@ -53,30 +54,33 @@ export default function Hero(): React.ReactElement {
         />
       </div>
 
-      <motion.h1
+      <Card
         className="text-4xl md:text-6xl lg:text-7xl font-bold text-center z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
+        enableDefaultStyles={false}
       >
         {COMMON.name}
-      </motion.h1>
+      </Card>
 
-      <motion.p
+      <Card
         className="mt-4 text-lg md:text-xl text-muted text-center max-w-xl z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
+        enableDefaultStyles={false}
       >
         {COMMON.title}
-      </motion.p>
+      </Card>
 
       {/* Alexa Voice Visualization */}
-      <motion.div
+      <Card
         className="flex justify-center items-end gap-1 my-8 h-20 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
+        enableDefaultStyles={false}
       >
         {voiceBars.map((height, index) => (
           <motion.div
@@ -87,23 +91,24 @@ export default function Hero(): React.ReactElement {
             transition={{ duration: 1.5, ease: "easeInOut" }}
           />
         ))}
-      </motion.div>
+      </Card>
 
       {/* Scroll indicator instead of buttons */}
-      <motion.div
+      <Card
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
+        enableDefaultStyles={false}
       >
         <p className="text-sm">{NAV.scrollForMore}</p>
-        <motion.div
+        <Card
           animate={{ y: [0, 10, 0] }}
           transition={{
             duration: 1.5,
-            repeat: Infinity,
             ease: "easeInOut"
           }}
+          enableDefaultStyles={false}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -114,8 +119,8 @@ export default function Hero(): React.ReactElement {
           >
             <path fillRule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
           </svg>
-        </motion.div>
-      </motion.div>
+        </Card>
+      </Card>
     </section>
   );
 }

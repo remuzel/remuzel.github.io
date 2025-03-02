@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./timeline.module.css";
@@ -39,8 +39,9 @@ export default function TimelineItem({
   // Importing the utility function instead of defining it here
 
   return (
-    <motion.div
+    <Card
       className="flex flex-col md:flex-row gap-3 relative"
+      enableDefaultStyles={false}
       {...FADE_IN_UP}
       whileInView={FADE_IN_UP.animate}
     >
@@ -67,7 +68,7 @@ export default function TimelineItem({
           >
             <div className="flex justify-between items-center mb-2">
               <div className="flex items-center gap-2">
-                  <div className="relative w-6 h-6 flex-shrink-0">
+                <div className="relative w-6 h-6 flex-shrink-0">
                   <Image
                     src={logo}
                     alt={`${company} logo`}
@@ -77,7 +78,8 @@ export default function TimelineItem({
                 </div>
                 <h3 className="text-xl font-bold">{title}</h3>
               </div>
-              <motion.button
+              <Card
+                component="button"
                 className="text-sm text-alexa-blue hover:text-alexa-blue-dark transition-colors rounded-full w-6 h-6 flex items-center justify-center"
                 aria-label={isExpanded ? "Collapse details" : "Expand details"}
                 initial={false}
@@ -95,6 +97,7 @@ export default function TimelineItem({
                   ease: [0.25, 0.1, 0.25, 1.0],
                   duration: 0.3
                 }}
+                enableDefaultStyles={false}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +108,7 @@ export default function TimelineItem({
                 >
                   <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                 </svg>
-              </motion.button>
+              </Card>
             </div>
             <p className="text-muted mb-4">{company}</p>
             <p className="text-foreground/80">
@@ -119,7 +122,7 @@ export default function TimelineItem({
           {/* Expanded content */}
           <AnimatePresence initial={false}>
             {isExpanded && (
-              <motion.div
+              <Card
                 id={`${title.replace(/\s+/g, '-').toLowerCase()}-details`}
                 initial={{ height: 0, opacity: 0, scale: 0.98, marginTop: 0 }}
                 animate={{
@@ -146,6 +149,7 @@ export default function TimelineItem({
                 }}
                 style={{ transformOrigin: "top center" }}
                 className="border-t border-border pt-4 overflow-hidden"
+                enableDefaultStyles={false}
               >
                 {/* Technologies */}
                 {technologies && technologies.length > 0 && (
@@ -173,11 +177,11 @@ export default function TimelineItem({
                     </ul>
                   </div>
                 )}
-              </motion.div>
+              </Card>
             )}
           </AnimatePresence>
         </Card>
       </div>
-    </motion.div>
+    </Card>
   );
 }

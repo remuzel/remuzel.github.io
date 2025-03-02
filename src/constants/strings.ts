@@ -75,8 +75,8 @@ export const ARIA = {
 export const ABOUT = {
   bio: [
     "I'm a Software Development Engineer II at Amazon Alexa, currently working on transitioning customers to the newly revealed Alexa+.",
-    "Previously, I led the launch of privacy-focused consent collection frameworks for radio partners across the UK and Germany, and developed international features like Karaoke on Alexa; delighting 500k+ customers.",
-    "I hold an MEng in Mathematics and Computer Science from Imperial College London, where my Master's thesis focused on network effects in ride-sharing platforms.",
+    "I've led the launch of privacy-focused consent collection frameworks for european radio partners, and developed international features like Karaoke on Alexa; delighting 500k+ customers.",
+    "I hold an MEng in Mathematics and Computer Science from Imperial College London, where my Master's thesis focused on network effects by modeling ride-sharing platforms.",
     "I aim to make a difference by building human-centered solutions that balance technical excellence with responsible AI development, particularly enjoying challenges at the intersection of scalable architecture, constitutional AI implementation, and safety engineering. I'm passionate about creating systems that are helpful, harmless, and honest while advancing capabilities that benefit humanity.",
   ],
 }
