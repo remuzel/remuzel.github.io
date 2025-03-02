@@ -69,7 +69,7 @@ export default function TimelineItem({
             href={link.url}
             target={link.isExternal ? "_blank" : undefined}
             rel={link.isExternal ? "noopener noreferrer" : undefined}
-            className="text-alexa-blue hover:underline"
+            className="text-alexa-blue underline"
             onClick={(e) => e.stopPropagation()}  // Prevent collapse when clicking link
           >
             {link.text}
@@ -91,7 +91,7 @@ export default function TimelineItem({
             href={link.url}
             target={link.isExternal ? "_blank" : undefined}
             rel={link.isExternal ? "noopener noreferrer" : undefined}
-            className="text-alexa-blue hover:underline"
+            className="text-alexa-blue underline"
             onClick={(e) => e.stopPropagation()}  // Prevent collapse when clicking link
           >
             {link.text}
@@ -121,7 +121,7 @@ export default function TimelineItem({
       {/* Date section */}
       <div className="md:w-1/5 flex items-start">
         <div className="flex flex-col items-center md:items-end w-full">
-          <div className="text-alexa-blue font-medium text-right pr-4 border-r border-border">
+          <div className="font-medium text-right pr-4 border-r text-alexa-blue border-border">
             <span>{date}</span>
           </div>
         </div>

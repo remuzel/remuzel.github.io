@@ -1,17 +1,20 @@
 "use client";
 
 import { SECTIONS } from "@/constants/strings";
-import { getAllExperiences } from "@/data/experiences";
+import { getAllWorkExperiences } from "@/data/experiences";
+import { getAllEducation } from "@/data/education";
 import { Timeline, TimelineItem } from "@/components/ui/timeline";
 
 export default function Experience(): React.ReactElement {
-  const experiences = getAllExperiences();
+  const workExperiences = getAllWorkExperiences();
+  const educationExperiences = getAllEducation();
 
   return (
-    <section id="experience" className="py-20 md:py-32">
-      <div className="container mx-auto px-4">
+    <section className="py-20 md:py-32">
+      {/* Work Experience Section */}
+      <div id="experience" className="container mx-auto px-4">
         <Timeline title={SECTIONS.experience}>
-          {experiences.map((exp) => (
+          {workExperiences.map((exp) => (
             <TimelineItem
               key={exp.id}
               date={exp.period}
@@ -22,6 +25,28 @@ export default function Experience(): React.ReactElement {
               technologies={exp.technologies}
               highlights={exp.highlights}
               links={exp.links}
+            />
+          ))}
+        </Timeline>
+      </div>
+
+      {/* Simple spacer between sections */}
+      <div className="h-8"/>
+
+      {/* Education Section */}
+      <div id="education" className="container mx-auto px-4">
+        <Timeline title={SECTIONS.education}>
+          {educationExperiences.map((edu) => (
+            <TimelineItem
+              key={edu.id}
+              date={edu.period}
+              title={edu.title}
+              company={edu.company}
+              logo={edu.logo}
+              description={edu.description}
+              technologies={edu.technologies}
+              highlights={edu.highlights}
+              links={edu.links}
             />
           ))}
         </Timeline>

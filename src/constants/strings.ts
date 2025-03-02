@@ -32,6 +32,7 @@ export const NAV = {
 export const SECTIONS = {
   aboutMe: "About Me",
   experience: "Experience",
+  education: "Education",
   projects: "Projects"
 }
 
@@ -73,10 +74,10 @@ export const ARIA = {
 // About section content
 export const ABOUT = {
   bio: [
-    "I'm a Software Development Engineer at Amazon Alexa, specializing in building scalable cloud services and tools that power conversational AI experiences.",
-    "With expertise in distributed systems, cloud architecture, and backend development, I focus on creating robust and efficient solutions to complex technical challenges.",
-    "My background combines strong computer science fundamentals with practical experience in designing and implementing microservices, data processing pipelines, and developer tools.",
-    "I'm passionate about clean code, performance optimization, and building systems that make development faster and more reliable for engineering teams.",
+    "I'm a Software Development Engineer II at Amazon Alexa, currently working on transitioning customers to the newly revealed Alexa+.",
+    "Previously, I led the launch of privacy-focused consent collection frameworks for radio partners across the UK and Germany, and developed international features like Karaoke on Alexa; delighting 500k+ customers.",
+    "I hold an MEng in Mathematics and Computer Science from Imperial College London, where my Master's thesis focused on network effects in ride-sharing platforms.",
+    "I aim to make a difference by building human-centered solutions that balance technical excellence with responsible AI development, particularly enjoying challenges at the intersection of scalable architecture, constitutional AI implementation, and safety engineering. I'm passionate about creating systems that are helpful, harmless, and honest while advancing capabilities that benefit humanity.",
   ],
 }
 
