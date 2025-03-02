@@ -2,24 +2,15 @@ import Link from "next/link";
 import { getProjectById, projects } from "@/data/projects";
 import { notFound } from "next/navigation";
 import { COMMON, NAV, ERRORS, META } from "@/constants/strings";
+import type { Metadata } from "next";
 
 // Generate metadata for the page
-export function generateMetadata({ params }: { params: { id: string } }): {
-  title: string;
-  description?: string;
-  openGraph?: {
-    title: string;
-    description: string;
-    type: string;
-    images?: { url: string; alt: string }[];
-  };
-  twitter?: {
-    title: string;
-    description: string;
-    images?: string[];
-  };
-} {
-  const project = getProjectById(params.id);
+export async function generateMetadata(
+  { params }: { params: Promise<{ id: string }> | { id: string } }
+): Promise<Metadata> {
+  // Await params first
+  const resolvedParams = await params;
+  const project = await getProjectById(resolvedParams.id);
   if (!project) return { title: ERRORS.notFound.title };
 
   return {
@@ -46,8 +37,12 @@ export function generateStaticParams(): Array<{ id: string }> {
   }));
 }
 
-export default function ProjectPage({ params }: { params: { id: string } }): React.ReactElement {
-  const project = getProjectById(params.id);
+export default async function Page(
+  { params }: { params: Promise<{ id: string }> | { id: string } }
+): Promise<React.ReactElement> {
+  // Await params first
+  const resolvedParams = await params;
+  const project = await getProjectById(resolvedParams.id);
 
   // If project not found, return 404
   if (!project) {
