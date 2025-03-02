@@ -12,6 +12,7 @@ This is a modern, responsive portfolio website built using Next.js, Tailwind CSS
 remuzel.github.io/
 ├── public/                 # Static assets
 │   └── images/             # Images including your logo and photos
+│       └── logos/          # Company logos for the timeline
 ├── src/
 │   ├── app/                # Next.js app router pages
 │   │   ├── projects/       # Projects section with dynamic routing
@@ -21,15 +22,32 @@ remuzel.github.io/
 │   │   ├── layout.tsx      # Root layout with metadata
 │   │   └── page.tsx        # Homepage
 │   ├── components/         # Reusable components
+│   │   ├── common/         # Common UI components
+│   │   │   ├── Card.tsx    # Card component for projects
+│   │   │   ├── Section.tsx # Section wrapper component
+│   │   │   ├── SectionHeader.tsx # Section header component
+│   │   │   └── Tag.tsx     # Tag component for technologies
 │   │   └── ui/             # UI components
 │   │       ├── about.tsx   # About section
 │   │       ├── experience.tsx # Experience timeline
 │   │       ├── footer.tsx  # Footer component
 │   │       ├── hero.tsx    # Hero section with Alexa animations
 │   │       ├── navbar.tsx  # Navigation component
-│   │       └── projects.tsx # Projects showcase section
-│   └── data/               # Data files
-│       └── projects.ts     # Projects data and helper functions
+│   │       ├── projects.tsx # Projects showcase section
+│   │       └── timeline/   # Timeline components
+│   │           ├── Timeline.tsx      # Timeline container component
+│   │           ├── TimelineItem.tsx  # Individual timeline item
+│   │           └── index.ts          # Timeline component exports
+│   ├── constants/          # Constants and configuration
+│   │   ├── animations.ts   # Animation configurations
+│   │   ├── strings.ts      # Text constants
+│   │   └── theme.ts        # Theme configuration
+│   ├── data/               # Data files
+│   │   ├── education.ts    # Education history data
+│   │   ├── experiences.ts  # Work experience data
+│   │   └── projects.ts     # Projects data and helper functions
+│   └── utils/              # Utility functions
+│       └── textUtils.tsx   # Text formatting utilities
 ```
 
 ## Key Features
@@ -38,6 +56,7 @@ remuzel.github.io/
    - Custom color scheme matching Alexa's branding
    - Animated rings in the hero section
    - Pulsing animations reminiscent of Alexa's voice UI
+   - Company logos integration in the timeline
 
 2. **Responsive Layout**
    - Mobile-first design that adapts to all screen sizes
@@ -49,15 +68,18 @@ remuzel.github.io/
    - Smooth scroll navigation
    - Animated sections that appear as you scroll
 
-4. **Projects System**
-   - Modular data structure in `src/data/projects.ts`
+4. **Projects and Experience System**
+   - Modular data structure in `src/data/projects.ts`, `src/data/experiences.ts`, and `src/data/education.ts`
    - Dynamic project pages with [id] route parameters
-   - Easily add new projects by updating the data file
+   - Timeline component for displaying work and education history
+   - Consistent interface patterns with the `TimelineItem` interface
+   - Easily add new projects and experiences by updating the data files
 
 5. **Animations**
    - Page elements animate in as you scroll
    - Subtle hover animations
    - Voice visualization in the hero
+   - Consistent animation patterns defined in `src/constants/animations.ts`
 
 ## How to Maintain and Update
 
@@ -89,10 +111,11 @@ remuzel.github.io/
 2. Update the text in the paragraph elements
 3. To replace your photo, add a new image to `public/images/` and update the Image component's `src` attribute
 
-### Updating Experience
+### Updating Experience and Education
 
-1. Edit `src/components/ui/experience.tsx`
-2. Modify the `experiences` array to update job history
+1. Edit `src/data/experiences.ts` to update work experiences
+2. Edit `src/data/education.ts` to update education history
+3. Both use the common `TimelineItem` interface for consistent structure
 
 ### Adding Custom CSS
 
@@ -112,6 +135,10 @@ remuzel.github.io/
 - `src/app/layout.tsx`: Root layout with metadata, fonts, and global structure
 - `src/app/globals.css`: Global styles and theme variables
 - `src/data/projects.ts`: Project data and helper functions
+- `src/data/experiences.ts`: Work experience data and interface definitions
+- `src/data/education.ts`: Education history data
+- `src/constants/animations.ts`: Animation configurations
+- `src/constants/strings.ts`: Text constants for the site
 
 ## Running the Site
 

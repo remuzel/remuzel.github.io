@@ -84,6 +84,14 @@ export const ABOUT = {
 // Projects section content
 export const PROJECTS = {
   intro: "Browse through my portfolio of projects and experiments",
+  comingSoon: {
+    title: "Coming Soon!",
+    message: "Exciting projects are in the works. Check back soon to see what I've been building."
+  },
+  underConstruction: {
+    title: "Projects Under Construction!",
+    message: "I'm currently working on some exciting new projects to showcase here. In the meantime, feel free to explore my GitHub repositories!",
+  }
 }
 
 // SEO and meta content

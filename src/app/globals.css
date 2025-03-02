@@ -86,3 +86,9 @@ body {
   0%, 100% { opacity: 0.5; transform: scaleY(0.3); }
   50% { opacity: 1; transform: scaleY(1); }
 }
+
+/* Simple fade in/out animation for loading dots */
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}

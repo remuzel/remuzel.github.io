@@ -1,18 +1,20 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./timeline.module.css";
-import CompanyIcon from "./CompanyIcon";
+import Card from "@/components/common/Card";
+import Tag from "@/components/common/Tag";
+import { renderTextWithLinks } from "@/utils/textUtils";
+import { FADE_IN_UP } from "@/constants/animations";
 
 interface TimelineItemProps {
   date: string;
   title: string;
   company: string;
   description: string;
-  logo?: string;
+  logo: string;
   technologies?: string[];
   highlights?: string[];
   links?: Array<{
@@ -34,89 +36,13 @@ export default function TimelineItem({
 }: TimelineItemProps): React.ReactElement {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  // Function to render description with linked text
-  const renderDescriptionWithLinks = (text: string, links: Array<{text: string, url: string, isExternal?: boolean}>): React.ReactNode => {
-    // If no links, just return the text
-    if (!links || links.length === 0) return text;
-
-    // Find all link texts in the description and replace them with linked versions
-    const parts: React.ReactNode[] = [];
-    let remainingText = text;
-
-    // Sort links by their position in the text (if present)
-    const sortedLinks = [...links].sort((a, b) => {
-      const posA = text.indexOf(a.text);
-      const posB = text.indexOf(b.text);
-
-      if (posA === -1) return 1;
-      if (posB === -1) return -1;
-      return posA - posB;
-    });
-
-    sortedLinks.forEach((link, index) => {
-      const linkTextPos = remainingText.indexOf(link.text);
-
-      if (linkTextPos !== -1) {
-        // Add text before the link
-        if (linkTextPos > 0) {
-          parts.push(remainingText.substring(0, linkTextPos));
-        }
-
-        // Add the linked text
-        parts.push(
-          <Link
-            key={index}
-            href={link.url}
-            target={link.isExternal ? "_blank" : undefined}
-            rel={link.isExternal ? "noopener noreferrer" : undefined}
-            className="text-alexa-blue underline"
-            onClick={(e) => e.stopPropagation()}  // Prevent collapse when clicking link
-          >
-            {link.text}
-          </Link>
-        );
-
-        // Update remaining text
-        remainingText = remainingText.substring(linkTextPos + link.text.length);
-      } else {
-        // If link text not in description, append after description
-        if (index === 0 && parts.length === 0 && remainingText.length > 0) {
-          parts.push(remainingText);
-          parts.push(" ");
-        }
-
-        parts.push(
-          <Link
-            key={`append-${index}`}
-            href={link.url}
-            target={link.isExternal ? "_blank" : undefined}
-            rel={link.isExternal ? "noopener noreferrer" : undefined}
-            className="text-alexa-blue underline"
-            onClick={(e) => e.stopPropagation()}  // Prevent collapse when clicking link
-          >
-            {link.text}
-          </Link>
-        );
-
-        remainingText = "";
-      }
-    });
-
-    // Add any remaining text
-    if (remainingText) {
-      parts.push(remainingText);
-    }
-
-    return <>{parts}</>;
-  };
+  // Importing the utility function instead of defining it here
 
   return (
     <motion.div
       className="flex flex-col md:flex-row gap-3 relative"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      {...FADE_IN_UP}
+      whileInView={FADE_IN_UP.animate}
     >
       {/* Date section */}
       <div className="md:w-1/5 flex items-start">
@@ -129,11 +55,8 @@ export default function TimelineItem({
 
       {/* Content section */}
       <div className="md:w-4/5">
-        <motion.div
-          className={`p-6 bg-card-bg rounded-lg border border-border shadow-sm ${styles.timelineCard}`}
-          whileHover={{
-            boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
-          }}
+        <Card
+          className={styles.timelineCard}
         >
           <div
             className="cursor-pointer"
@@ -144,18 +67,14 @@ export default function TimelineItem({
           >
             <div className="flex justify-between items-center mb-2">
               <div className="flex items-center gap-2">
-                {logo ? (
                   <div className="relative w-6 h-6 flex-shrink-0">
-                    <Image
-                      src={logo}
-                      alt={`${company} logo`}
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                ) : (
-                  <CompanyIcon name={company} size={20}/>
-                )}
+                  <Image
+                    src={logo}
+                    alt={`${company} logo`}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <h3 className="text-xl font-bold">{title}</h3>
               </div>
               <motion.button
@@ -191,7 +110,7 @@ export default function TimelineItem({
             <p className="text-muted mb-4">{company}</p>
             <p className="text-foreground/80">
               {links && links.length > 0
-                ? renderDescriptionWithLinks(description, links)
+                ? renderTextWithLinks(description, links)
                 : description
               }
             </p>
@@ -234,12 +153,10 @@ export default function TimelineItem({
                     <h4 className="text-sm font-semibold text-muted mb-2">Technologies</h4>
                     <div className="flex flex-wrap gap-2">
                       {technologies.map((tech, index) => (
-                        <span
+                        <Tag
                           key={index}
-                          className="text-xs px-2 py-1 rounded-full bg-alexa-blue/10 text-alexa-blue"
-                        >
-                          {tech}
-                        </span>
+                          text={tech}
+                        />
                       ))}
                     </div>
                   </div>
@@ -259,7 +176,7 @@ export default function TimelineItem({
               </motion.div>
             )}
           </AnimatePresence>
-        </motion.div>
+        </Card>
       </div>
     </motion.div>
   );

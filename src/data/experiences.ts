@@ -5,7 +5,7 @@ export interface TimelineItem {
   title: string;
   company: string;
   description: string;
-  logo?: string; // Path to company logo
+  logo: string; // Path to company logo
   technologies?: string[];
   highlights?: string[];
   links?: Array<{

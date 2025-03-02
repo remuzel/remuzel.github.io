@@ -11,7 +11,9 @@ export interface Project {
   featured: boolean;
 }
 
-export const projects: Project[] = [];
+export const projects: Project[] = [
+  // TODO - Add projects
+];
 
 // Helper function to get the latest n projects
 export function getLatestProjects(count: number = 3): Project[] {
