@@ -10,8 +10,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/remuzel.github.io' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/remuzel.github.io/' : '',
 };
 
 export default nextConfig;

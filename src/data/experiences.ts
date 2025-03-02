@@ -1,3 +1,4 @@
+
 // Base interface for common properties
 export interface TimelineItem {
   id: string;
