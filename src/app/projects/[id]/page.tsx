@@ -31,7 +31,7 @@ export async function generateMetadata(
 }
 
 // Generate static paths for all projects
-export function generateStaticParams(): Array<{ id: string }> {
+export async function generateStaticParams(): Promise<Array<{ id: string }>> {
   return projects.map(project => ({
     id: project.id,
   }));

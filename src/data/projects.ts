@@ -31,6 +31,6 @@ export function getFeaturedProjects(count: number = 3): Project[] {
 }
 
 // Helper function to get a specific project by ID
-export function getProjectById(id: string): Project | undefined {
+export async function getProjectById(id: string): Promise<Project | undefined> {
   return projects.find(project => project.id === id);
 }
