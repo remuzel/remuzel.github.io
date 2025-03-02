@@ -28,7 +28,7 @@ export default function Navbar(): React.ReactElement {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href={ROUTES.home} className="flex items-center gap-2">
             <div className="w-8 h-8 md:w-10 md:h-10 relative overflow-hidden rounded-md">
               <Image
                 src="/images/logo.png"
@@ -152,28 +152,28 @@ export default function Navbar(): React.ReactElement {
         ${mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
       >
         <Link
-          href="/"
+          href={ROUTES.home}
           className="text-xl font-medium"
           onClick={() => setMobileMenuOpen(false)}
         >
           {NAV.home}
         </Link>
         <Link
-          href="/#about"
+          href={ROUTES.about}
           className="text-xl font-medium"
           onClick={() => setMobileMenuOpen(false)}
         >
           {NAV.about}
         </Link>
         <Link
-          href="/#experience"
+          href={ROUTES.experience}
           className="text-xl font-medium"
           onClick={() => setMobileMenuOpen(false)}
         >
           {NAV.experience}
         </Link>
         <Link
-          href="/projects"
+          href={ROUTES.projects}
           className="text-xl font-medium"
           onClick={() => setMobileMenuOpen(false)}
         >

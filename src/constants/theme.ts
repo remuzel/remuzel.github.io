@@ -47,5 +47,5 @@ export const ROUTES = {
   about: "/#about",
   experience: "/#experience",
   projects: "/projects",
-  projectDetails: (id: string): string => `/projects/${id}`,
+  projectUrl: (id: string): string => `/projects/${id}`,
 };

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ROUTES } from "@/constants/theme";
 import { COMMON, NAV, ALT, SOCIAL } from "@/constants/strings";
 
 export default function Footer(): React.ReactElement {
@@ -24,10 +25,10 @@ export default function Footer(): React.ReactElement {
 
           {/* Simplified navigation */}
           <div className="flex gap-6 mb-6">
-            <Link href="#home" className="text-muted hover:text-alexa-blue transition-colors">{NAV.home}</Link>
-            <Link href="#about" className="text-muted hover:text-alexa-blue transition-colors">{NAV.about}</Link>
-            <Link href="#experience" className="text-muted hover:text-alexa-blue transition-colors">{NAV.experience}</Link>
-            <Link href="#projects" className="text-muted hover:text-alexa-blue transition-colors">{NAV.projects}</Link>
+            <Link href={ROUTES.home} className="text-muted hover:text-alexa-blue transition-colors">{NAV.home}</Link>
+            <Link href={ROUTES.about} className="text-muted hover:text-alexa-blue transition-colors">{NAV.about}</Link>
+            <Link href={ROUTES.experience} className="text-muted hover:text-alexa-blue transition-colors">{NAV.experience}</Link>
+            <Link href={ROUTES.projects} className="text-muted hover:text-alexa-blue transition-colors">{NAV.projects}</Link>
           </div>
 
           {/* Social links with enhanced hover effects */}

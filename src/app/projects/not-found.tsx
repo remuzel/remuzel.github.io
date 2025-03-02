@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ROUTES } from "@/constants/theme";
 import { ERRORS, NAV } from "@/constants/strings";
 
 export default function NotFound(): React.ReactElement {
@@ -12,13 +13,13 @@ export default function NotFound(): React.ReactElement {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/projects"
+            href={ROUTES.projects}
             className="inline-flex items-center justify-center gap-2 bg-foreground text-background py-2 px-6 rounded-lg hover:bg-alexa-blue transition-colors"
           >
             {NAV.viewAllProjects}
           </Link>
           <Link
-            href="/"
+            href={ROUTES.home}
             className="inline-flex items-center justify-center gap-2 border border-border py-2 px-6 rounded-lg hover:border-alexa-blue hover:text-alexa-blue transition-colors"
           >
             {NAV.backToHome}

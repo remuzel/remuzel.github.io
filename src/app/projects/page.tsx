@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { projects } from "@/data/projects";
+import { ROUTES } from "@/constants/theme";
 import { COMMON, NAV, SECTIONS, PROJECTS, SOCIAL, ARIA, META } from "@/constants/strings";
 
 export const metadata = {
@@ -29,7 +30,7 @@ export default function ProjectsPage(): React.ReactElement {
           <p className="text-muted mb-10">{PROJECTS.intro}</p>
 
           <Link
-            href="/"
+            href={ROUTES.home}
             className="inline-flex items-center mb-12 text-muted hover:text-alexa-blue transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className="mr-2">
@@ -71,7 +72,7 @@ export default function ProjectsPage(): React.ReactElement {
 
                   <div className="flex justify-between items-center">
                     <Link
-                      href={`/projects/${project.id}`}
+                      href={ROUTES.projectUrl(project.id)}
                       className="inline-block text-alexa-blue hover:text-alexa-blue-dark font-medium"
                     >
                       {NAV.viewDetails}

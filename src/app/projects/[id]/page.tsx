@@ -65,7 +65,7 @@ export default async function Page(
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <Link
-            href="/projects"
+            href={ROUTES.projects}
             className="inline-flex items-center mb-6 text-muted hover:text-alexa-blue transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className="mr-2">
@@ -141,14 +141,14 @@ export default async function Page(
 
           <div className="mt-12 flex justify-between items-center">
             <Link
-              href="/projects"
+              href={ROUTES.projects}
               className="text-muted hover:text-alexa-blue transition-colors"
             >
               ← {NAV.projects}
             </Link>
 
             <Link
-              href="/"
+              href={ROUTES.home}
               className="text-muted hover:text-alexa-blue transition-colors"
             >
               {NAV.backToHome} ↑

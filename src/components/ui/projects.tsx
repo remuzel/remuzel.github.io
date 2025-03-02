@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ROUTES } from "@/constants/theme";
 import { getLatestProjects } from "@/data/projects";
 import { SECTIONS, NAV, SOCIAL, PROJECTS } from "@/constants/strings";
 import Section from "@/components/common/Section";
@@ -26,7 +27,7 @@ export default function Projects(): React.ReactElement {
           enableDefaultStyles={false}
         >
           <Link
-            href="/projects"
+            href={ROUTES.projects}
             className="text-alexa-blue hover:text-alexa-blue-dark font-medium"
           >
             {NAV.viewAllProjects}
@@ -61,7 +62,7 @@ export default function Projects(): React.ReactElement {
 
                 <div className="flex justify-between items-center">
                   <Link
-                    href={`/projects/${project.id}`}
+                    href={ROUTES.projectUrl(project.id)}
                     className="inline-block text-alexa-blue hover:text-alexa-blue-dark font-medium"
                   >
                     {NAV.viewDetails}
