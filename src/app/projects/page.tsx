@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { projects } from "@/data/projects";
 import { ROUTES } from "@/constants/theme";
 import { COMMON, NAV, SECTIONS, PROJECTS, SOCIAL, ARIA, META } from "@/constants/strings";
@@ -47,7 +48,19 @@ export default function ProjectsPage(): React.ReactElement {
                   className="bg-card-bg rounded-lg overflow-hidden border border-border shadow-sm hover:shadow-md transition-all p-6"
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                    <h2 className="text-2xl font-bold">{project.title}</h2>
+                    <div className="flex items-center gap-3">
+                      {project.image && (
+                        <div className="relative w-10 h-10 shrink-0">
+                          <Image
+                            src={project.image}
+                            alt={`${project.title} logo`}
+                            fill
+                            style={{ objectFit: 'contain' }}
+                          />
+                        </div>
+                      )}
+                      <h2 className="text-2xl font-bold">{project.title}</h2>
+                    </div>
                     <div className="text-sm text-muted">
                       {new Date(project.date).toLocaleDateString('en-US', {
                         year: 'numeric',

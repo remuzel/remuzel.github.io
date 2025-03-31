@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ROUTES } from "@/constants/theme";
 import { getLatestProjects } from "@/data/projects";
 import { SECTIONS, NAV, SOCIAL, PROJECTS } from "@/constants/strings";
@@ -46,7 +47,19 @@ export default function Projects(): React.ReactElement {
               enableDefaultStyles={false}
             >
               <Card>
-                <h3 className="text-xl font-bold mb-3">{project.title}</h3>
+                <div className="flex items-center gap-3 mb-3">
+                  {project.image && (
+                    <div className="relative w-8 h-8 shrink-0">
+                      <Image
+                        src={project.image}
+                        alt={`${project.title} logo`}
+                        fill
+                        style={{ objectFit: 'contain' }}
+                      />
+                    </div>
+                  )}
+                  <h3 className="text-xl font-bold">{project.title}</h3>
+                </div>
                 <p className="text-foreground/80 mb-4">{project.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-5">
