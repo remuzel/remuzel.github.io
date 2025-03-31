@@ -174,6 +174,24 @@ export const missionMap: Record<string, MissionInfo> = {
     description: "NASA's high-energy detective scanning the entire sky every three hours, revealing pulsars, blazars, and other extreme phenomena through the gamma-ray window—light millions to billions of times more energetic than visible light.",
     moreInfoUrl: "https://science.nasa.gov/mission/fermi/"
   },
+  "ACE": {
+    name: "ACE",
+    fullName: "Advanced Composition Explorer",
+    description: "Designed to collect and analyze particles from near and far, ranging from solar wind ions to galactic cosmic ray nuclei, ACE far exceeded its expected life span of five years and continues to provide data on space weather, and give advance warning of geomagnetic storms.",
+    moreInfoUrl: "https://science.nasa.gov/mission/ace/"
+  },
+  "PSYC": {
+    name: "Psyche",
+    fullName: "Psyche: Mission to a Metal-Rich World",
+    description: "The Psyche spacecraft is traveling to a unique metal-rich asteroid with the same name, orbiting the Sun between Mars and Jupiter.",
+    moreInfoUrl: "https://science.nasa.gov/mission/Psyche/"
+  },
+  "WIND": {
+    name: "Wind",
+    fullName: "Wind",
+    description: "Wind is a spin-stabilized spacecraft that observes the solar wind that is about to impact the magnetosphere of Earth.",
+    moreInfoUrl: "https://science.nasa.gov/mission/wind/"
+  }
 };
 
 // Fallback function for unknown missions
