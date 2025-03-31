@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getProjectById, projects } from "@/data/projects";
 import { notFound } from "next/navigation";
 import { COMMON, NAV, ERRORS, META } from "@/constants/strings";
+import { ROUTES } from "@/constants/theme";
 import type { Metadata } from "next";
 
 // Generate static paths for all projects
