@@ -20,7 +20,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "XML", "NASA API", "Real-time Data", "Interactive Visualization", "Space"],
     date: "2025-03-31",
     image: "/images/logos/nasa.svg",
-    liveUrl: "https://eyes.nasa.gov/dsn/dsn.html",
+    liveUrl: "https://eyes.nasa.gov/apps/dsn-now/dsn.html",
     featured: true
   }
 ];

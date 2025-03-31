@@ -14,6 +14,8 @@ export const COMMON = {
   title: "Software Development Engineer at Amazon Alexa",
   copyright: (year: number): string => `© ${year} Remi Uzel. All rights reserved.`,
   websiteUrl: "https://remuzel.github.io",
+  claudeCredit: "Crafted with Claude Code",
+  claudeUrl: "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview",
 }
 
 // Navigation related strings

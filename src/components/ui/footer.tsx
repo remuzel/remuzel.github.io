@@ -64,6 +64,16 @@ export default function Footer(): React.ReactElement {
           <p className="text-sm text-muted">
             {COMMON.copyright(new Date().getFullYear())}
           </p>
+          <p className="text-xs text-muted mt-2 hover:text-alexa-blue transition-colors">
+            <a
+              href={COMMON.claudeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 hover:underline"
+            >
+              <span>✨</span> {COMMON.claudeCredit}
+            </a>
+          </p>
         </div>
       </div>
     </footer>
