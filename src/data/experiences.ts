@@ -21,37 +21,41 @@ export type WorkExperience = TimelineItem;
 
 export const workExperiences: WorkExperience[] = [
   {
-    id: "amazon-alexa-sde-ii-alexa+",
-    period: "May 2024 - Present",
-    title: "Software Development Engineer - SDE II",
+    id: "amazon-alexa-sde-iii",
+    period: "Jul 2025 - Present",
+    title: "Senior Software Engineer - SDE III",
     company: "Amazon - Alexa",
     logo: "/images/logos/amazon-alexa.svg",
-    description: "With the earthquake that are Large Language Models in the tech world, Alexa has been re-engineered from the ground up into a truly remarkable personal assistant. Partnering with teams across the company, I am working to transition customers from Alexa to the newly revealed Alexa+.",
+    description: "With LLMs upheaving the tech industry, Alexa has been re-engineered from the ground up into a truly remarkable personal assistant. Partnering with teams across the company, I am working to transition customers from Alexa to Alexa+.",
     technologies: ["LLM-based Agentic Workflows", "ECS/EC2", "DynamoDB", "Java", "AWS CDK - Typescript"],
-    highlights: [],
+    highlights: [
+      "Rolling out Alexa+ across worldwide markets via multiple Beta/Release programs",
+      "Led a refactoring of 10+ services that reduced scaling effort for international reqs from 360 to 58 SDE weeks (83% reduction)",
+      "Implemented LLM-based Agentic workflows for Alexa+ transition programs"
+    ],
     links: [
       {
         text: "Alexa+",
-        url: "https://www.amazon.com/dp/B0DCCNHWV5",
+        url: "https://www.amazon.com/newAlexa",
         isExternal: true
       }
     ]
   },
   {
-    id: "amazon-alexa-sde-ii-ccc",
-    period: "Jul 2022 - May 2024",
+    id: "amazon-alexa-sde-ii",
+    period: "Jul 2022 - Jul 2025",
     title: "Software Development Engineer - SDE II",
     company: "Amazon - Alexa",
     logo: "/images/logos/amazon-alexa.svg",
     description: "Led the launch of a new consent collection program for radio partners who want to implement interest-based advertismenet in their Alexa integrations whilst maintaining the high Alexa Privacy bar, TCFv2 frameworks and GDPR regulations. If you listen to onboarded radio partners on Alexa, check it out here!",
     technologies: ["AWS Lambda", "SQS", "DynamoDB", "CloudWatch", "Java", "Kotlin", "AWS CDK - Typescript", "TCFv2 Framework"],
     highlights: [
-      "Customers receive relevant ads instead of generic ones and radio partners have more financial incentives to provide their radio streams for free on Alexa",
-      "Implemented a customer-first solution, prioritizing customer experience while also maintaining a low barrier to entry for new radio partners who want to opt-into the solution",
-      "Tech lead for the E2E designed, implemented and launch of the cookie consent collection framework",
-      "Managing the delivery of the program on an ambitious deadline, working with a team of 7 engineers across the Seattle, London and Bangalore",
-      "Supporting 98% of radio-listening hours in the United Kingdom and YY% in Germany",
-      "Optimizing for both average and spike QPS/TPS based on customer behavior (including wake-up routines with 10-15x traffic spikes)"
+      "Tech lead for a new consent collection program for Alexa EU radio partners unlocking interest-based advertising",
+      "Led a team of 7-10 SDEs across London, Seattle and Bangalore",
+      "Led the implementation of two AWS-based services which handle ~30M weekly radio requests across UK and DE",
+      "Optimised the AWS infra to handle 10-15x QPS spikes based on customer traffic patterns to maintain P99 latency targets",
+      "Designed around the high Alexa Privacy bar, TCFv2 frameworks and GDPR regulations",
+      "Unlocked $XXMM advertisement revenue across EU5"
     ],
     links: [
       {
@@ -82,8 +86,8 @@ export const workExperiences: WorkExperience[] = [
     highlights: [
       "Designed, developed and launched key features such as favourites and playback history",
       "Managed DevOps responsibilities across AWS regions (us-east-1, us-west-2 and eu-west-1)",
-      "Supported product scaling to 100k+ MAUs post-launch",
-      "Implement and maintained integrations with regional external partners",
+      "Scaled product and service infrastructure to handle 100k+ MAUs",
+      "Designed and maintained integrations with regional external partners (Yokee & JOYSOUND)",
     ],
     links: [
       {

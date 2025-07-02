@@ -1,6 +1,6 @@
 # Remi Uzel | Personal Portfolio
 
-A modern, responsive personal portfolio website showcasing my work as a Software Development Engineer at Amazon Alexa.
+A modern, responsive personal portfolio website showcasing my work as a Senior Software Engineer at Amazon Alexa.
 
 ## Overview
 
