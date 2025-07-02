@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ROUTES } from "@/constants/theme";
-import { getLatestProjects } from "@/data/projects";
+import { getLatestProjects, getFeaturedProjects } from "@/data/projects";
 import { SECTIONS, NAV, SOCIAL, PROJECTS } from "@/constants/strings";
 import Section from "@/components/common/Section";
 import SectionHeader from "@/components/common/SectionHeader";
@@ -13,8 +13,15 @@ import Tag from "@/components/common/Tag";
 import { FADE_IN, FADE_IN_UP, getStaggeredFadeIn } from "@/constants/animations";
 
 export default function Projects(): React.ReactElement {
-  // Get the 3 most recent projects
+  // Smart hybrid approach: featured first, then latest non-featured to fill up to 3
+  const featuredProjects = getFeaturedProjects(3);
   const latestProjects = getLatestProjects(3);
+
+  // Combine: featured first, then latest non-featured to fill up to 3
+  const displayProjects = [...featuredProjects];
+  const featuredIds = new Set(featuredProjects.map(p => p.id));
+  const remainingLatest = latestProjects.filter(p => !featuredIds.has(p.id));
+  displayProjects.push(...remainingLatest.slice(0, 3 - displayProjects.length));
 
   return (
     <Section id="projects" background="card">
@@ -37,16 +44,21 @@ export default function Projects(): React.ReactElement {
         </Card>
       </div>
 
-      {latestProjects.length > 0 ? (
+      {displayProjects.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {latestProjects.map((project, index) => (
+          {displayProjects.map((project, index) => (
             <Card
               key={project.id}
               {...getStaggeredFadeIn(index)}
               whileInView={FADE_IN_UP.animate}
               enableDefaultStyles={false}
             >
-              <Card>
+              <Card className="relative">
+                {project.featured && (
+                  <div className="absolute top-3 right-3 bg-alexa-blue text-white text-2xl px-2 py-1 rounded-full">
+                    ✨
+                  </div>
+                )}
                 <div className="flex items-center gap-3 mb-3">
                   {project.image && (
                     <div className="relative w-8 h-8 shrink-0">
