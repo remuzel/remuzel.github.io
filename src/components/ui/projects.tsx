@@ -13,14 +13,11 @@ import Tag from "@/components/common/Tag";
 import { FADE_IN, FADE_IN_UP, getStaggeredFadeIn } from "@/constants/animations";
 
 export default function Projects(): React.ReactElement {
-  // Smart hybrid approach: featured first, then latest non-featured to fill up to 3
-  const featuredProjects = getFeaturedProjects(3);
-  const latestProjects = getLatestProjects(3);
-
   // Combine: featured first, then latest non-featured to fill up to 3
+  const featuredProjects = getFeaturedProjects(3);
   const displayProjects = [...featuredProjects];
   const featuredIds = new Set(featuredProjects.map(p => p.id));
-  const remainingLatest = latestProjects.filter(p => !featuredIds.has(p.id));
+  const remainingLatest = getLatestProjects(3).filter(p => !featuredIds.has(p.id));
   displayProjects.push(...remainingLatest.slice(0, 3 - displayProjects.length));
 
   return (
@@ -54,11 +51,6 @@ export default function Projects(): React.ReactElement {
               enableDefaultStyles={false}
             >
               <Card className="relative">
-                {project.featured && (
-                  <div className="absolute top-3 right-3 bg-alexa-blue text-white text-2xl px-2 py-1 rounded-full">
-                    ✨
-                  </div>
-                )}
                 <div className="flex items-center gap-3 mb-3">
                   {project.image && (
                     <div className="relative w-8 h-8 shrink-0">
