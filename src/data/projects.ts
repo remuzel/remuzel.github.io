@@ -18,10 +18,10 @@ export const projects: Project[] = [
     description: "An unofficial Polarstep API wrapper and MCP server enabling AI models to interact with personal travel data from Polarsteps.",
     longDescription: "What started as \"I wonder if I can get some data out of Polarsteps...\" became my first MCP server implementation. Figuring out the API and auth headers was straightforward enough, but then I fell down the rabbit hole of proper Python module structure. Such a long way from the simple scripted `uv run main.py` days!\n\nI ended up building both a Python wrapper for their APIs (and the massive JSON responses they return; thank you Pydantic, you beautiful beast) and a proper MCP server.\nHonestly not sure how useful this will be now that they just released their own LLM integration, but it marks my debut in the \"build MCP servers for everything\" phase of my life.\n\nStay tuned for the next one!",
     tags: ["Python", "MCP", "API Wrapper", "Travel"],
-    date: "2025-07-01",
+    date: "2025-07-02",
     image: "/images/logos/polarsteps.png",
     github: "https://github.com/remuzel/polarsteps-mcp",
-    liveUrl: "https://news.polarsteps.com/news/polarsteps-summer-2025-release-is-here",
+    liveUrl: "https://smithery.ai/server/@remuzel/polarsteps-mcp",
     featured: true
   },
   {
