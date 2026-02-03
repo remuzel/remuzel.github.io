@@ -10,13 +10,18 @@ module.exports = {
       colors: {
         'background': 'var(--background)',
         'foreground': 'var(--foreground)',
-        'alexa-blue': 'var(--alexa-blue)',
-        'alexa-blue-dark': 'var(--alexa-blue-dark)',
-        'alexa-secondary': 'var(--alexa-secondary)',
-        'alexa-accent': 'var(--alexa-accent)',
+        'brand-primary': 'var(--brand-primary)',
+        'brand-primary-dark': 'var(--brand-primary-dark)',
+        'brand-secondary': 'var(--brand-secondary)',
+        'brand-accent': 'var(--brand-accent)',
         'card-bg': 'var(--card-bg)',
         'muted': 'var(--muted)',
-        'border': 'var(--border)'
+        'border': 'var(--border)',
+        // Legacy aliases for compatibility
+        'alexa-blue': 'var(--brand-primary)',
+        'alexa-blue-dark': 'var(--brand-primary-dark)',
+        'alexa-secondary': 'var(--brand-secondary)',
+        'alexa-accent': 'var(--brand-accent)'
       },
       animation: {
         'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',

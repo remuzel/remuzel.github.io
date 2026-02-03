@@ -6,7 +6,7 @@ import { COMMON, NAV } from "@/constants/strings";
 import Card from "@/components/common/Card";
 
 export default function Hero(): React.ReactElement {
-  // For Alexa voice visualization animation
+  // For voice visualization animation
   const [voiceBars, setVoiceBars] = useState<number[]>(Array(10).fill(0.3));
 
   useEffect(() => {
@@ -19,10 +19,10 @@ export default function Hero(): React.ReactElement {
 
   return (
     <section id="home" className="relative flex flex-col items-center justify-center min-h-screen px-4 py-20">
-      {/* Alexa Ring Background - Enhanced with outward animation */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] rounded-full border-4 border-[#00CAFF]/10 z-0">
+      {/* Animated Ring Background - Enhanced with outward animation */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] rounded-full border-4 border-brand-primary/10 z-0">
         <motion.div
-          className="absolute -inset-5 rounded-full border-4 border-[#00CAFF]/5 z-0"
+          className="absolute -inset-5 rounded-full border-4 border-brand-primary/5 z-0"
           animate={{
             scale: [1, 1.1, 1],
             opacity: [0.5, 0.3, 0.5],
@@ -33,11 +33,11 @@ export default function Hero(): React.ReactElement {
             ease: "easeInOut"
           }}
           style={{
-            boxShadow: "0 0 10px rgba(0, 202, 255, 0.4)"
+            boxShadow: "0 0 10px rgba(var(--brand-primary-rgb), 0.4)"
           }}
         />
         <motion.div
-          className="absolute -inset-10 rounded-full border-4 border-[#00CAFF]/3 z-0"
+          className="absolute -inset-10 rounded-full border-4 border-brand-primary/5 z-0"
           animate={{
             scale: [1, 1.15, 1],
             opacity: [0.3, 0.2, 0.3],
@@ -49,7 +49,7 @@ export default function Hero(): React.ReactElement {
             delay: 0.5
           }}
           style={{
-            boxShadow: "0 0 15px rgba(0, 202, 255, 0.3)"
+            boxShadow: "0 0 15px rgba(var(--brand-primary-rgb), 0.3)"
           }}
         />
       </div>
@@ -74,7 +74,7 @@ export default function Hero(): React.ReactElement {
         {COMMON.title}
       </Card>
 
-      {/* Alexa Voice Visualization */}
+      {/* Voice/AI Visualization */}
       <Card
         className="flex justify-center items-end gap-1 my-8 h-20 z-10"
         initial={{ opacity: 0 }}
@@ -85,7 +85,7 @@ export default function Hero(): React.ReactElement {
         {voiceBars.map((height, index) => (
           <motion.div
             key={index}
-            className="w-1 bg-alexa-blue rounded-full"
+            className="w-1 bg-brand-primary rounded-full"
             style={{ height: `${height * 100}%` }}
             animate={{ height: `${height * 100}%` }}
             transition={{ duration: 1.5, ease: "easeInOut" }}

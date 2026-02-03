@@ -11,7 +11,7 @@
 // Common strings used across multiple components
 export const COMMON = {
   name: "Remi Uzel",
-  title: "Senior Software Engineer at Amazon Alexa",
+  title: "Software Engineer at Anthropic",
   copyright: (year: number): string => `© ${year} Remi Uzel. All rights reserved.`,
   websiteUrl: "https://remuzel.github.io",
   claudeCredit: "Crafted with Claude Code",
@@ -76,8 +76,8 @@ export const ARIA = {
 // About section content
 export const ABOUT = {
   bio: [
-    "I'm a Senior Software Engineer (SDE III) at Amazon Alexa, currently working on transitioning customers to Alexa+.",
-    "I've led the launch of privacy-focused consent collection frameworks for european radio partners, and developed international features like Karaoke on Alexa; delighting 500k+ customers.",
+    "I'm a Software Engineer at Anthropic, working on building safe and beneficial AI systems.",
+    "Previously, I was a Senior Software Engineer (SDE III) at Amazon Alexa, where I led the launch of privacy-focused consent collection frameworks for european radio partners, and developed international features like Karaoke on Alexa; delighting 500k+ customers.",
     "I hold an MEng in Mathematics and Computer Science from Imperial College London, where my Master's thesis focused on network effects by modeling ride-sharing platforms.",
     "I want to maximise positive expectation of humanity's trajectory. My privacy compliance work has taught me that policy outcomes vary wildly, from cookie banner fatigue to genuine wins like USB-C standardization. I'm optimistic we can learn from both to develop AI governance frameworks that truly align with societal benefit.",
   ],
@@ -102,21 +102,20 @@ export const META = {
   baseUrl: "https://remuzel.github.io",
   defaultTitle: "Remi Uzel | Portfolio",
   titleTemplate: "%s | Remi Uzel",
-  description: "Portfolio of Remi Uzel, Senior Software Engineer at Amazon Alexa, specializing in backend systems, AWS cloud architecture, and distributed systems.",
+  description: "Portfolio of Remi Uzel, Software Engineer at Anthropic, specializing in AI systems, backend development, and distributed systems.",
 
   // Keywords
   keywords: [
-    "senior software engineer",
-    "AWS",
-    "Amazon",
-    "Alexa",
-    "Prime Video",
+    "software engineer",
+    "Anthropic",
+    "AI",
+    "machine learning",
+    "Claude",
     "backend engineer",
-    "java developer",
     "python developer",
     "cloud computing",
     "distributed systems",
-    "serverless"
+    "AI safety"
   ],
 
   // Open Graph
@@ -128,8 +127,8 @@ export const META = {
 
   // Theme colors
   themeColors: {
-    light: "#00CAFF",
-    dark: "#232F3E"
+    light: "#D97757",
+    dark: "#1A1915"
   },
 
   // Assets

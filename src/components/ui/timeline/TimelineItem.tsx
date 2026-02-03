@@ -48,7 +48,7 @@ export default function TimelineItem({
       {/* Date section */}
       <div className="md:w-1/5 flex items-start">
         <div className="flex flex-col items-center md:items-end w-full">
-          <div className="font-medium text-right pr-4 border-r text-alexa-blue border-border">
+          <div className="font-medium text-right pr-4 border-r text-brand-primary border-border">
             <span>{date}</span>
           </div>
         </div>
@@ -80,15 +80,15 @@ export default function TimelineItem({
               </div>
               <Card
                 component="button"
-                className="text-sm text-alexa-blue hover:text-alexa-blue-dark transition-colors rounded-full w-6 h-6 flex items-center justify-center"
+                className="text-sm text-brand-primary hover:text-brand-primary-dark transition-colors rounded-full w-6 h-6 flex items-center justify-center"
                 aria-label={isExpanded ? "Collapse details" : "Expand details"}
                 initial={false}
                 animate={{
                   rotate: isExpanded ? 90 : 0,
-                  backgroundColor: isExpanded ? "rgba(0, 202, 255, 0.1)" : "transparent"
+                  backgroundColor: isExpanded ? "rgba(var(--brand-primary-rgb), 0.1)" : "transparent"
                 }}
                 whileHover={{
-                  backgroundColor: "rgba(0, 202, 255, 0.2)",
+                  backgroundColor: "rgba(var(--brand-primary-rgb), 0.2)",
                   scale: 1.05
                 }}
                 whileTap={{ scale: 0.95 }}

@@ -25,10 +25,10 @@ export default function Footer(): React.ReactElement {
 
           {/* Simplified navigation */}
           <div className="flex gap-6 mb-6">
-            <Link href={ROUTES.home} className="text-muted hover:text-alexa-blue transition-colors">{NAV.home}</Link>
-            <Link href={ROUTES.about} className="text-muted hover:text-alexa-blue transition-colors">{NAV.about}</Link>
-            <Link href={ROUTES.experience} className="text-muted hover:text-alexa-blue transition-colors">{NAV.experience}</Link>
-            <Link href={ROUTES.projects} className="text-muted hover:text-alexa-blue transition-colors">{NAV.projects}</Link>
+            <Link href={ROUTES.home} className="text-muted hover:text-brand-primary transition-colors">{NAV.home}</Link>
+            <Link href={ROUTES.about} className="text-muted hover:text-brand-primary transition-colors">{NAV.about}</Link>
+            <Link href={ROUTES.experience} className="text-muted hover:text-brand-primary transition-colors">{NAV.experience}</Link>
+            <Link href={ROUTES.projects} className="text-muted hover:text-brand-primary transition-colors">{NAV.projects}</Link>
           </div>
 
           {/* Social links with enhanced hover effects */}
@@ -37,7 +37,7 @@ export default function Footer(): React.ReactElement {
               href={SOCIAL.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted hover:text-alexa-blue hover:drop-shadow-[0_0_8px_rgba(0,202,255,0.7)] transition-colors p-1"
+              className="text-muted hover:text-brand-primary hover:drop-shadow-[0_0_8px_rgba(var(--brand-primary-rgb),0.7)] transition-colors p-1"
               aria-label={SOCIAL.platformName.github}
               whileHover={{ scale: 1.2 }}
             >
@@ -49,7 +49,7 @@ export default function Footer(): React.ReactElement {
               href={SOCIAL.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted hover:text-alexa-blue hover:drop-shadow-[0_0_8px_rgba(0,202,255,0.7)] transition-colors p-1"
+              className="text-muted hover:text-brand-primary hover:drop-shadow-[0_0_8px_rgba(var(--brand-primary-rgb),0.7)] transition-colors p-1"
               aria-label={SOCIAL.platformName.linkedin}
               whileHover={{ scale: 1.2 }}
             >
@@ -64,7 +64,7 @@ export default function Footer(): React.ReactElement {
           <p className="text-sm text-muted">
             {COMMON.copyright(new Date().getFullYear())}
           </p>
-          <p className="text-xs text-muted mt-2 hover:text-alexa-blue transition-colors">
+          <p className="text-xs text-muted mt-2 hover:text-brand-primary transition-colors">
             <a
               href={COMMON.claudeUrl}
               target="_blank"
