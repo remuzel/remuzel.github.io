@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { COMMON, ALT, META } from "@/constants/strings";
+import BrandProvider from "@/context/BrandContext";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -78,7 +79,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <BrandProvider>
+          {children}
+        </BrandProvider>
       </body>
     </html>
   );

@@ -21,6 +21,7 @@ export default function Experience(): React.ReactElement {
               title={exp.title}
               company={exp.company}
               logo={exp.logo}
+              logoAdaptive={exp.logoAdaptive}
               description={exp.description}
               technologies={exp.technologies}
               highlights={exp.highlights}
@@ -43,6 +44,7 @@ export default function Experience(): React.ReactElement {
               title={edu.title}
               company={edu.company}
               logo={edu.logo}
+              logoAdaptive={edu.logoAdaptive}
               description={edu.description}
               technologies={edu.technologies}
               highlights={edu.highlights}

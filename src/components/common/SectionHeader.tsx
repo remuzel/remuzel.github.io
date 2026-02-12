@@ -17,7 +17,7 @@ export default function SectionHeader({ title, className = "" }: SectionHeaderPr
       transition={{ duration: 0.5 }}
     >
       {title}
-      <span className="absolute -bottom-3 left-0 w-16 h-1 bg-alexa-blue"/>
+      <span className="absolute -bottom-3 left-0 w-16 h-1 bg-brand-primary"/>
     </motion.h2>
   );
 }

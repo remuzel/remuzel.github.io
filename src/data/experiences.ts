@@ -7,6 +7,7 @@ export interface TimelineItem {
   company: string;
   description: string;
   logo: string; // Path to company logo
+  logoAdaptive?: boolean; // If true, render as inline SVG with currentColor
   technologies?: string[];
   highlights?: string[];
   links?: Array<{
@@ -21,8 +22,26 @@ export type WorkExperience = TimelineItem;
 
 export const workExperiences: WorkExperience[] = [
   {
+    id: "anthropic-mts",
+    period: "Jan 2026 - Present",
+    title: "Member of Technical Staff",
+    company: "Anthropic",
+    logo: "/images/logos/anthropic-logo.svg",
+    logoAdaptive: true,
+    description: "Turning chips into thoughts. Working on the Infrastructure (Systems) team, ensuring the compute capacity from our cloud partners is reliable and usable at scale to power Claude.",
+    technologies: ["Python", "Distributed Systems", "Cloud Infrastructure"],
+    highlights: [],
+    links: [
+      {
+        text: "Anthropic",
+        url: "https://www.anthropic.com",
+        isExternal: true
+      }
+    ]
+  },
+  {
     id: "amazon-alexa-sde-iii",
-    period: "Jul 2025 - Present",
+    period: "Jul 2025 - Jan 2026",
     title: "Senior Software Engineer - SDE III",
     company: "Amazon - Alexa",
     logo: "/images/logos/amazon-alexa.svg",
@@ -130,23 +149,6 @@ export const workExperiences: WorkExperience[] = [
       }
     ]
   },
-  {
-    id: "icl-urop",
-    period: "Jul 2018 - Aug 2018",
-    title: "Undergraduate Research Fellow",
-    company: "Imperial College London",
-    logo: "/images/logos/imperial-college-london.svg",
-    description: "Research project in Threat Modelling across human, physical & cyber vulnerabilities with Prof. Emil Lupu.",
-    technologies: ["Python", "Threat Modelling", "Wireshark", "Burp Suite"],
-    highlights: [],
-    links: [
-      {
-        text: "Prof. Emil Lupu",
-        url: "https://profiles.imperial.ac.uk/e.c.lupu/about",
-        isExternal: true
-      }
-    ]
-  }
 ];
 
 // Helper function to get all work experiences in reverse chronological order
