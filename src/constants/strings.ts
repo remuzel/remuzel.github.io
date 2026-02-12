@@ -11,7 +11,7 @@
 // Common strings used across multiple components
 export const COMMON = {
   name: "Remi Uzel",
-  title: "Software Engineer at Anthropic",
+  title: "Member of Technical Staff at Anthropic",
   copyright: (year: number): string => `© ${year} Remi Uzel. All rights reserved.`,
   websiteUrl: "https://remuzel.github.io",
   claudeCredit: "Crafted with Claude Code",
@@ -76,10 +76,9 @@ export const ARIA = {
 // About section content
 export const ABOUT = {
   bio: [
-    "I'm a Software Engineer at Anthropic, working on building safe and beneficial AI systems.",
-    "Previously, I was a Senior Software Engineer (SDE III) at Amazon Alexa, where I led the launch of privacy-focused consent collection frameworks for european radio partners, and developed international features like Karaoke on Alexa; delighting 500k+ customers.",
+    "I'm a Member of Technical Staff at Anthropic, turning chips into thoughts.",
+    "Previously, I was a Senior Software Engineer (SDE III) at Amazon Alexa, where I accelerated Alexa+ launches across Canada and Mexico, managing multiple release programs (private Beta, Early Access, and General Availability). I also led privacy-focused consent collection frameworks for european radio partners and developed international features like Karaoke on Alexa.",
     "I hold an MEng in Mathematics and Computer Science from Imperial College London, where my Master's thesis focused on network effects by modeling ride-sharing platforms.",
-    "I want to maximise positive expectation of humanity's trajectory. My privacy compliance work has taught me that policy outcomes vary wildly, from cookie banner fatigue to genuine wins like USB-C standardization. I'm optimistic we can learn from both to develop AI governance frameworks that truly align with societal benefit.",
   ],
 }
 

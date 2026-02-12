@@ -15,6 +15,7 @@ interface TimelineItemProps {
   company: string;
   description: string;
   logo: string;
+  logoAdaptive?: boolean;
   technologies?: string[];
   highlights?: string[];
   links?: Array<{
@@ -30,6 +31,7 @@ export default function TimelineItem({
   company,
   description,
   logo,
+  logoAdaptive,
   technologies,
   highlights,
   links,
@@ -69,12 +71,18 @@ export default function TimelineItem({
             <div className="flex justify-between items-center mb-2">
               <div className="flex items-center gap-2">
                 <div className="relative w-6 h-6 flex-shrink-0">
-                  <Image
-                    src={logo}
-                    alt={`${company} logo`}
-                    fill
-                    className="object-contain"
-                  />
+                  {logoAdaptive ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-foreground">
+                      <path d="M17.304 3.541h-3.672l6.696 16.918H24Zm-10.608 0L0 20.459h3.744l1.37-3.553h7.005l1.369 3.553h3.744L10.536 3.541Zm-.371 10.223L8.616 7.82l2.291 5.945Z"/>
+                    </svg>
+                  ) : (
+                    <Image
+                      src={logo}
+                      alt={`${company} logo`}
+                      fill
+                      className="object-contain"
+                    />
+                  )}
                 </div>
                 <h3 className="text-xl font-bold">{title}</h3>
               </div>
